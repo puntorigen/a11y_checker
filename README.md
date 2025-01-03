@@ -1,6 +1,6 @@
 # A11y PR Checker
 
-A GitHub Action for checking pull requests (PRs) against accessibility guidelines and provide suggested fixes as comments. It uses a team of experts to assess and validate incremental accesibility issues on your repositories.
+A GitHub Action for checking pull requests (PRs) against WCAG accessibility guidelines and provide suggested fixes as comments. It uses a team of experts to assess and validate incremental accesibility issues on your repositories.
 
 ## Requirements
 
