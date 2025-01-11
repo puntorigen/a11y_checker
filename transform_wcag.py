@@ -2,10 +2,10 @@ import json
 import os
 from dotenv import load_dotenv
 from openai import OpenAI
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 import time
 
-def get_techniques_and_failures(client: OpenAI, ref_id: str, title: str, description: str, guideline_description: str = "", special_cases: List[str] = None) -> tuple[List[str], List[str]]:
+def get_techniques_and_failures(client: OpenAI, ref_id: str, title: str, description: str, guideline_description: str = "", special_cases: List[str] = None) -> Tuple[str, List[str], List[str]]:
     """
     Use OpenAI to generate relevant techniques and failures for a WCAG criterion.
     Rate limits requests to avoid hitting OpenAI's rate limits.
@@ -26,10 +26,14 @@ Description: {description}
 {context}
 
 Please provide:
-1. A list of 4-6 specific, actionable techniques for implementing this criterion in web applications
-2. A list of 3-5 common failures or mistakes that violate this criterion
+1. A clear, concise description of this criterion that focuses on its core requirements and purpose, without mentioning implementation techniques or failures.
+2. A list of 4-6 specific, actionable techniques for implementing this criterion in web applications
+3. A list of 3-5 common failures or mistakes that violate this criterion
 
 Format your response exactly like this example:
+DESCRIPTION
+This criterion ensures that all non-text content has a text alternative that serves an equivalent purpose, enabling users with visual impairments to understand the content through screen readers or other assistive technologies.
+
 TECHNIQUES
 - Use semantic HTML elements for structure
 - Implement proper ARIA labels
@@ -53,22 +57,34 @@ FAILURES
         
         # Parse response
         content = response.choices[0].message.content
+        description = ""
         techniques = []
         failures = []
         
-        current_list = None
+        current_section = None
+        description_lines = []
+        
         for line in content.split('\n'):
             line = line.strip()
-            if line == 'TECHNIQUES':
-                current_list = techniques
+            if line == 'DESCRIPTION':
+                current_section = 'description'
+            elif line == 'TECHNIQUES':
+                current_section = 'techniques'
             elif line == 'FAILURES':
-                current_list = failures
-            elif line.startswith('- '):
-                if current_list is not None:
-                    current_list.append(line[2:])
+                current_section = 'failures'
+            elif line:
+                if current_section == 'description':
+                    description_lines.append(line)
+                elif current_section == 'techniques' and line.startswith('- '):
+                    techniques.append(line[2:])
+                elif current_section == 'failures' and line.startswith('- '):
+                    failures.append(line[2:])
+        
+        description = ' '.join(description_lines)
         
         print("\nGenerated content:")
-        print("Techniques:")
+        print("Description:", description)
+        print("\nTechniques:")
         for t in techniques:
             print(f"  - {t}")
         print("Failures:")
@@ -79,10 +95,10 @@ FAILURES
         print("\nWaiting a second before next request...")
         time.sleep(1)
         
-        return techniques, failures
+        return description, techniques, failures
     except Exception as e:
         print(f"Error generating content for {ref_id}: {str(e)}")
-        return [], []
+        return "", [], []
 
 def extract_success_criteria(data: List[Dict]) -> List[Dict]:
     """Extract all success criteria from the old WCAG format"""
@@ -100,54 +116,59 @@ def extract_success_criteria(data: List[Dict]) -> List[Dict]:
                     "guideline_description": guideline_description,
                     "special_cases": criterion.get("special_cases", [])
                 })
-    
     return criteria
 
 def main():
-    # Load environment variables
+    # Load environment variables from .env file
     load_dotenv()
     
     # Initialize OpenAI client
-    client = OpenAI()
+    openai_api_key = os.getenv("OPENAI_API_KEY")
+    if not openai_api_key:
+        raise ValueError("OPENAI_API_KEY not found in environment variables")
+    client = OpenAI(api_key=openai_api_key)
     
-    # Load old WCAG data
+    # Load original WCAG data
     with open("data/wcag.json", "r") as f:
-        old_data = json.load(f)
+        data = json.load(f)
     
     # Extract success criteria
-    criteria = extract_success_criteria(old_data)
+    criteria = extract_success_criteria(data)
     
     # Generate techniques and failures for each criterion
-    print(f"Generating techniques and failures for {len(criteria)} criteria...")
+    guidelines = []
     for criterion in criteria:
-        print(f"Processing {criterion['name']}...")
-        print(f"Guideline Context: {criterion['guideline_description']}")
-        if criterion['special_cases']:
-            print("Special Cases:")
-            for case in criterion['special_cases']:
-                print(f"  - {case}")
-                
-        techniques, failures = get_techniques_and_failures(
+        name = criterion["name"]
+        ref_id = name.split(" ")[0]
+        title = " ".join(name.split(" ")[1:])
+        
+        description, techniques, failures = get_techniques_and_failures(
             client,
-            criterion['name'].split()[0],  # ref_id
-            " ".join(criterion['name'].split()[1:]),  # title
-            criterion['description'],
-            criterion['guideline_description'],
-            criterion['special_cases']
+            ref_id,
+            title,
+            criterion["description"],
+            criterion["guideline_description"],
+            criterion.get("special_cases", [])
         )
-        criterion['techniques'] = techniques
-        criterion['failures'] = failures
+        
+        guidelines.append({
+            "name": name,
+            "level": criterion["level"],
+            "description": description or criterion["description"],  # Fall back to original if generation fails
+            "url": criterion["url"],
+            "techniques": techniques,
+            "failures": failures
+        })
     
-    # Create new format
-    new_data = {
-        "guidelines": criteria
+    # Save transformed data
+    output = {
+        "guidelines": guidelines
     }
     
-    # Save new format
     with open("data/wcag_2_2_new.json", "w") as f:
-        json.dump(new_data, f, indent=4)
+        json.dump(output, f, indent=4)
     
-    print("Transformation complete! New file saved as data/wcag_2_2_new.json")
+    print("\nTransformation complete! New data saved to data/wcag_2_2_new.json")
 
 if __name__ == "__main__":
     main()
