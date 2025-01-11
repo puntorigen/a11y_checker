@@ -1,0 +1,1545 @@
+{
+    "guidelines": [
+        {
+            "name": "1.1.1 Non-text Content",
+            "level": "A",
+            "description": "All non-text content that is presented to the user has a text alternative that serves the equivalent purpose, except for the situations listed below.",
+            "url": "https://www.w3.org/TR/WCAG22/#non-text-content",
+            "techniques": [
+                "Provide meaningful alt text for images that convey information or serve a purpose.",
+                "Use aria-label or aria-labelledby attributes to provide text alternatives for non-text elements like icons or controls.",
+                "Ensure that CAPTCHA images are accompanied by an accessible alternative, such as an audio CAPTCHA or a support link for assistance.",
+                "For decorative images, use empty alt attributes (alt=\"\") to ensure they are ignored by assistive technologies.",
+                "Supply text alternatives for multimedia content, such as transcripts for audio files and captions for videos."
+            ],
+            "failures": [
+                "Omitting alt attributes for important images, leaving screen reader users without context.",
+                "Using generic or non-descriptive alt text, such as \"image1\" or \"photo,\" which fails to convey the image's purpose.",
+                "Providing text alternatives that do not match the purpose or context of the non-text content, leading to confusion."
+            ]
+        },
+        {
+            "name": "1.2.1 Audio-only and Video-only (Prerecorded)",
+            "level": "A",
+            "description": "For prerecorded audio-only and prerecorded video-only media, the following are true, except when the audio or video is a media alternative for text and is clearly labeled as such.",
+            "url": "https://www.w3.org/TR/WCAG22/#audio-only-and-video-only-prerecorded",
+            "techniques": [
+                "Provide a text transcript for prerecorded audio-only content to convey the same information available in the audio.",
+                "Offer a descriptive text alternative for prerecorded video-only content to describe the visuals.",
+                "Use captions or subtitles for video content that includes significant visual information that needs to be understood.",
+                "Clearly label audio or video content as a media alternative for text when applicable, so users understand its purpose.",
+                "Ensure that text alternatives are easily accessible and placed near the media content they describe."
+            ],
+            "failures": [
+                "Failing to provide a text transcript for prerecorded audio-only files, leaving some users without access to the content.",
+                "Omitting descriptive text alternatives for prerecorded video-only content, resulting in loss of context or information for users who cannot see the video.",
+                "Not clearly indicating when audio or video is serving as an alternative for text, leading to confusion about the content's intent."
+            ]
+        },
+        {
+            "name": "1.2.2 Captions (Prerecorded)",
+            "level": "A",
+            "description": "Captions are provided for all prerecorded audio content in synchronized media, except when the media is a media alternative for text and is clearly labeled as such.",
+            "url": "https://www.w3.org/TR/WCAG22/#captions-prerecorded",
+            "techniques": [
+                "Use captioning services or software to create accurate captions for all prerecorded audio content in synchronized media.",
+                "Embed captions directly into video files using supported formats such as WebVTT for HTML5 video elements.",
+                "Offer a toggle or button to enable captions, ensuring it is accessible and easy to find for users.",
+                "Ensure the captions are synchronized with the audio content, providing a text equivalent of spoken dialogue and relevant non-speech information.",
+                "Provide a downloadable transcript of the captions for users who prefer or require a text version."
+            ],
+            "failures": [
+                "Failing to provide captions for prerecorded audio content in synchronized media, leaving users without access to the spoken information.",
+                "Incorrectly timing captions so they do not align with the audio, causing confusion and loss of context for users.",
+                "Providing captions that omit essential non-speech information, such as important sound effects or speaker identification, reducing comprehension."
+            ]
+        },
+        {
+            "name": "1.2.3 Audio Description or Media Alternative (Prerecorded)",
+            "level": "A",
+            "description": "An alternative for time-based media or audio description of the prerecorded video content is provided for synchronized media, except when the media is a media alternative for text and is clearly labeled as such.",
+            "url": "https://www.w3.org/TR/WCAG22/#audio-description-or-media-alternative-prerecorded",
+            "techniques": [
+                "Provide an audio description track that can be selected by the user to describe important visual content in prerecorded videos.",
+                "Offer a full-text transcript of the video content that includes descriptions of visual information and dialog.",
+                "Integrate software tools or services to automatically generate audio descriptions for video content, ensuring they are accurate and comprehensive.",
+                "Include an option in the media player for users to enable audio descriptions and ensure it is clearly labeled for easy access.",
+                "Use captions or subtitles as a supplement to audio descriptions to enhance understanding of the content for all users."
+            ],
+            "failures": [
+                "Failing to provide any audio description or text alternative for visual-only content in prerecorded videos.",
+                "Relying solely on captions to convey visual information, without offering a separate audio description or detailed transcript.",
+                "Not labeling the media properly when it is intended as an alternative for text, leading to confusion about the availability of audio descriptions."
+            ]
+        },
+        {
+            "name": "1.2.4 Captions (Live)",
+            "level": "AA",
+            "description": "Captions are provided for all live audio content in synchronized media.",
+            "url": "https://www.w3.org/TR/WCAG22/#captions-live",
+            "techniques": [
+                "Use live captioning services or tools that integrate with your web application to provide real-time captions for live audio content.",
+                "Implement a custom live captioning feature using a combination of speech recognition APIs and real-time text display within the web application.",
+                "Ensure that live captions are synchronized with the audio content and are displayed in a clear, readable format on the screen.",
+                "Provide users with the option to enable or disable live captions according to their preference.",
+                "Test the live captioning feature across different browsers and devices to ensure consistent accessibility."
+            ],
+            "failures": [
+                "Not providing any form of live captions for audio content in live events or streams.",
+                "Relying solely on automatic captions without review or adjustment, leading to inaccurate or incomplete text.",
+                "Displaying captions in a way that is not clearly visible or readable, such as using small fonts or poor color contrast."
+            ]
+        },
+        {
+            "name": "1.2.5 Audio Description (Prerecorded)",
+            "level": "AA",
+            "description": "Audio description is provided for all prerecorded video content in synchronized media.",
+            "url": "https://www.w3.org/TR/WCAG22/#audio-description-prerecorded",
+            "techniques": [
+                "Provide a separate audio track with audio description synchronized with the video content.",
+                "Use a media player that supports audio description tracks and allows users to toggle the description on and off.",
+                "Incorporate audio descriptions directly into the primary audio track during natural pauses in dialogue or action.",
+                "Offer a text transcript that includes both dialogue and audio description as an alternative means of access.",
+                "Utilize accessible video hosting platforms that support audio description features."
+            ],
+            "failures": [
+                "Failing to provide any audio description for video content.",
+                "Offering audio descriptions that are not synchronized with the video, leading to confusion or missed information.",
+                "Using automated audio description tools without manual review, resulting in inaccurate or incomplete descriptions."
+            ]
+        },
+        {
+            "name": "1.2.6 Sign Language (Prerecorded)",
+            "level": "AAA",
+            "description": "Sign language interpretation is provided for all prerecorded audio content in synchronized media.",
+            "url": "https://www.w3.org/TR/WCAG22/#sign-language-prerecorded",
+            "techniques": [
+                "Include a sign language interpretation video track alongside the main video content that users can enable or disable.",
+                "Provide a picture-in-picture feature that displays a sign language interpreter within the video player, ensuring the interpreter is visible and the video is resizable.",
+                "Allow users to download a separate video file of the sign language interpretation alongside the main media content.",
+                "Use video players that support multiple tracks, including sign language interpretation, and ensure these options are easily accessible to users.",
+                "Collaborate with professional sign language interpreters to create high-quality, accurate interpretations of the content."
+            ],
+            "failures": [
+                "Failing to provide any form of sign language interpretation for prerecorded audio content in synchronized media.",
+                "Offering sign language interpretation but making it inaccessible due to poor video quality or obscured visibility within the media player."
+            ]
+        },
+        {
+            "name": "1.2.7 Extended Audio Description (Prerecorded)",
+            "level": "AAA",
+            "description": "Where pauses in foreground audio are insufficient to allow audio descriptions to convey the sense of the video, extended audio description is provided for all prerecorded video content in synchronized media.",
+            "url": "https://www.w3.org/TR/WCAG22/#extended-audio-description-prerecorded",
+            "techniques": [
+                "Integrate a media player that supports extended audio descriptions, allowing users to toggle between standard and extended descriptions.",
+                "Provide an option to pause the video automatically during extended audio descriptions to ensure the descriptions are clearly heard.",
+                "Script and record extended audio descriptions that fill in the necessary visual information during pauses, ensuring complete understanding of the video content.",
+                "Offer a separate version of the video with extended audio descriptions incorporated directly into the media file."
+            ],
+            "failures": [
+                "Failing to provide audio descriptions when the video contains essential visual content that cannot be understood through the standard audio.",
+                "Relying solely on visual cues without pausing or extending audio descriptions, resulting in incomplete information for users who are blind or visually impaired."
+            ]
+        },
+        {
+            "name": "1.2.8 Media Alternative (Prerecorded)",
+            "level": "AAA",
+            "description": "An alternative for time-based media is provided for all prerecorded synchronized media and for all prerecorded video-only media.",
+            "url": "https://www.w3.org/TR/WCAG22/#media-alternative-prerecorded",
+            "techniques": [
+                "Provide a full text transcript for all prerecorded synchronized media, including descriptions of visual content and dialogue.",
+                "Create a detailed text description of all visual information for prerecorded video-only media.",
+                "Use a downloadable document format (e.g., PDF, Word) for transcripts and descriptions to ensure they are accessible offline.",
+                "Ensure the text alternative is available on the same page as the media or clearly linked to it.",
+                "Include time stamps in transcripts and descriptions to facilitate synchronization with the media content."
+            ],
+            "failures": [
+                "Failing to provide a text alternative for prerecorded video-only media.",
+                "Offering a transcript that lacks descriptions of visual content, focusing only on dialogue.",
+                "Providing a text alternative that is not easily accessible or linked from the media content page."
+            ]
+        },
+        {
+            "name": "1.2.9 Audio-only (Live)",
+            "level": "AAA",
+            "description": " An alternative for time-based media that presents equivalent information for live audio-only content is provided.",
+            "url": "https://www.w3.org/TR/WCAG22/#audio-only-live",
+            "techniques": [
+                "Provide a real-time transcript of the live audio content, either manually or using speech-to-text technology.",
+                "Offer a text-based summary or detailed notes of the live audio in a timely manner.",
+                "Use a live text chat feature or a messaging platform to convey the equivalent information as the live audio event progresses.",
+                "Implement a live captioning service that provides captions for the audio content in real-time.",
+                "Utilize a sign language interpreter, and provide a video stream of the interpreter alongside the live audio content."
+            ],
+            "failures": [
+                "Failing to provide any written or text equivalent for live audio-only content.",
+                "Relying solely on automated captions without reviewing for accuracy and completeness.",
+                "Providing an equivalent text after the live event has concluded, rather than during the live broadcast."
+            ]
+        },
+        {
+            "name": "1.3.1 Info and Relationships",
+            "level": "A",
+            "description": "Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text.",
+            "url": "https://www.w3.org/TR/WCAG22/#info-and-relationships",
+            "techniques": [
+                "Use semantic HTML elements (e.g., `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<aside>`, `<footer>`) to properly convey the structure of the content.",
+                "Use heading elements (`<h1>` through `<h6>`) to indicate the hierarchy and relationships of headings in the content.",
+                "Employ lists (`<ul>`, `<ol>`, `<dl>`) to represent lists of items or definitions, ensuring the relationships between list items and their parent list are clear.",
+                "Use ARIA roles and properties judiciously to enhance semantic meaning where native HTML elements are not sufficient.",
+                "Ensure that data tables are marked up with `<table>`, `<thead>`, `<tbody>`, `<tfoot>`, `<tr>`, `<th>`, and `<td>` to clearly define relationships between headers and data cells."
+            ],
+            "failures": [
+                "Using `<div>` or `<span>` elements for structural purposes without providing additional semantic information or context.",
+                "Presenting data tables without properly associating table headers and data cells, making it difficult for assistive technologies to convey the relationships.",
+                "Arranging content visually to imply a relationship (such as placing items side by side) without providing programmatic indications of the relationship."
+            ]
+        },
+        {
+            "name": "1.3.2 Meaningful Sequence",
+            "level": "A",
+            "description": "When the sequence in which content is presented affects its meaning, a correct reading sequence can be programmatically determined.",
+            "url": "https://www.w3.org/TR/WCAG22/#meaningful-sequence",
+            "techniques": [
+                "Use semantic HTML elements such as `<header>`, `<article>`, `<section>`, and `<footer>` to define the logical structure of the content.",
+                "Use ordered lists (`<ol>`) for content that has a specific sequence or hierarchy.",
+                "Ensure that the HTML source code order matches the visual presentation order when the sequence is important for understanding.",
+                "Use ARIA landmarks (e.g., `role=\"main\"`, `role=\"navigation\"`) to define different sections of a page to assist screen reader users in navigating content.",
+                "Ensure that navigation and other interactive elements are logically ordered in the DOM to provide a natural reading flow for assistive technologies."
+            ],
+            "failures": [
+                "Using CSS to visually reorder content without ensuring the underlying HTML reflects the correct logical order.",
+                "Structuring content using tables for layout purposes, which can disrupt the reading sequence for screen readers.",
+                "Presenting content in a sequence that does not match the logical order necessary for understanding, such as placing a summary before the main content without indicating the relationship."
+            ]
+        },
+        {
+            "name": "1.3.3 Sensory Characteristics",
+            "level": "A",
+            "description": "Instructions provided for understanding and operating content do not rely solely on sensory characteristics of components such as shape, size, visual location, orientation, or sound.",
+            "url": "https://www.w3.org/TR/WCAG22/#sensory-characteristics",
+            "techniques": [
+                "Provide text labels or descriptions for controls and instructions that do not rely on sensory characteristics (e.g., \"Click the 'Submit' button\" instead of \"Click the big blue button\").",
+                "Use programmatically determinable labels for form fields and buttons, such as `<label>` elements or ARIA attributes like `aria-labelledby`.",
+                "Include additional cues alongside sensory characteristics, such as text or icons, to describe actions (e.g., combining an icon with text like \"Search\" instead of using the icon alone).",
+                "Ensure that any instructions using spatial references (e.g., \"to the right\", \"above\") are supplemented with non-visual cues.",
+                "Provide a clear and consistent structure using headings and lists to organize content, enabling users to understand relationships without relying on visual layout."
+            ],
+            "failures": [
+                "Giving instructions that only refer to a component's appearance, like \"Press the green button\" without additional identifiers.",
+                "Using only sound to convey important information or instructions without a visual or text alternative.",
+                "Describing the location of items on a page solely by their position, such as \"the link in the top-right corner\", without additional context."
+            ]
+        },
+        {
+            "name": "1.3.4 Orientation",
+            "level": "AA",
+            "description": "Content does not restrict its view and operation to a single display orientation, such as portrait or landscape, unless a specific display orientation is essential.",
+            "url": "https://www.w3.org/TR/WCAG22/#orientation",
+            "techniques": [
+                "Design responsive layouts using CSS Flexbox or Grid to adapt to both portrait and landscape orientations.",
+                "Use media queries to adjust styling and layout for different orientations while maintaining functionality.",
+                "Test your application on various devices and orientations to ensure that all functionalities are accessible and usable in both portrait and landscape modes.",
+                "Implement fluid typography and scalable UI elements to ensure readability and interaction in any orientation.",
+                "Utilize viewport meta tags correctly to prevent locking the orientation unless absolutely necessary for functionality."
+            ],
+            "failures": [
+                "Hardcoding layout dimensions that only fit one orientation, resulting in cut-off content or unusable interfaces when the device is rotated.",
+                "Disabling auto-rotation or locking orientation through JavaScript or device settings without a valid reason.",
+                "Designing interactive elements that become inaccessible or difficult to use when the orientation changes."
+            ]
+        },
+        {
+            "name": "1.3.5 Identify Input Purpose",
+            "level": "AA",
+            "description": "The purpose of each input field collecting information about the user can be programmatically determined when:",
+            "url": "https://www.w3.org/TR/WCAG22/#identify-input-purpose",
+            "techniques": [
+                "Use the HTML `autocomplete` attribute to specify the expected type of data for input fields, such as `autocomplete=\"name\"` or `autocomplete=\"email\"`.",
+                "Implement ARIA attributes like `aria-labelledby` or `aria-describedby` to clearly associate labels with input fields, providing additional context when necessary.",
+                "Use descriptive labels for input fields that clearly indicate the expected input, ensuring they are programmatically associated with the input element.",
+                "Ensure that input fields are coded using standard HTML form controls to take advantage of built-in accessibility features and assistive technology support.",
+                "Provide contextual help or instructions that are programmatically associated with the input fields to guide users in understanding the purpose of each input."
+            ],
+            "failures": [
+                "Omitting the `autocomplete` attribute or using incorrect values, thereby failing to convey the input purpose programmatically.",
+                "Using generic or unclear labels for input fields that do not accurately describe their purpose.",
+                "Relying solely on placeholder text to convey the purpose of an input field, as placeholders may not be read by screen readers and can disappear when users type."
+            ]
+        },
+        {
+            "name": "1.3.6 Identify Purpose",
+            "level": "AAA",
+            "description": "In content implemented using markup languages, the purpose of User Interface Components, icons, and regions can be programmatically determined.",
+            "url": "https://www.w3.org/TR/WCAG22/#identify-purpose",
+            "techniques": [
+                "Use ARIA roles and properties to define the purpose of user interface components, ensuring they are recognized by assistive technologies.",
+                "Implement HTML5 landmark elements (e.g., `<header>`, `<nav>`, `<main>`, `<footer>`) to define regions of a page.",
+                "Use `aria-label` or `aria-labelledby` to provide accessible names and descriptions for icons and interactive elements.",
+                "Employ `role=\"button\"`, `role=\"navigation\"`, or other appropriate roles to clarify the purpose of custom components.",
+                "Use metadata schemas, such as RDFa or microdata, to annotate content and clarify the purpose of data fields or interface components."
+            ],
+            "failures": [
+                "Failing to use semantic HTML or ARIA roles, resulting in assistive technologies being unable to determine the purpose of elements.",
+                "Using non-descriptive IDs or classes without corresponding ARIA attributes or labels, leaving components' purposes ambiguous.",
+                "Neglecting to define regions or components in a way that can be programmatically determined, such as omitting landmark roles or elements."
+            ]
+        },
+        {
+            "name": "1.4.1 Use of Color",
+            "level": "A",
+            "description": "Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element.",
+            "url": "https://www.w3.org/TR/WCAG22/#use-of-color",
+            "techniques": [
+                "Use text labels alongside color-coded elements to convey information (e.g., adding text labels to colored buttons).",
+                "Implement patterns or textures in addition to color to differentiate elements (e.g., using different shapes or patterns in graphs).",
+                "Ensure that links are underlined or otherwise visually distinct without relying solely on color.",
+                "Provide icons or symbols in addition to color to signify actions or categories (e.g., using a checkmark icon along with a green color to indicate success).",
+                "Use tooltips or additional text explanations that appear on hover or focus to clarify information conveyed by color."
+            ],
+            "failures": [
+                "Using red text alone to indicate errors without additional text or symbols.",
+                "Relying solely on color coding in charts or graphs without labels or legends.",
+                "Using color alone to differentiate interactive elements from non-interactive elements."
+            ]
+        },
+        {
+            "name": "1.4.2 Audio Control",
+            "level": "A",
+            "description": "If any audio on a Web page plays automatically for more than 3 seconds, either a mechanism is available to pause or stop the audio, or a mechanism is available to control audio volume independently from the overall system volume level.",
+            "url": "https://www.w3.org/TR/WCAG22/#audio-control",
+            "techniques": [
+                "Provide a visible control to pause or stop audio that plays automatically, such as a pause button or a stop button.",
+                "Implement a volume control feature specifically for the audio content, allowing users to adjust the audio volume independently of the system volume.",
+                "Use JavaScript to detect and prevent audio from playing automatically unless user interaction initiates it.",
+                "Design the audio player interface with clear and easily accessible controls, ensuring they are operable via keyboard and screen readers.",
+                "Include a preference setting for users to disable auto-play audio across the site."
+            ],
+            "failures": [
+                "Allowing audio to play automatically for more than 3 seconds without providing any mechanism to pause, stop, or adjust the volume.",
+                "Relying solely on the system's volume controls without offering a separate volume control for the web page\u2019s audio content.",
+                "Hiding audio controls or making them difficult to access, especially for users relying on keyboard navigation or assistive technologies."
+            ]
+        },
+        {
+            "name": "1.4.3 Contrast (Minimum)",
+            "level": "AA",
+            "description": " The visual presentation of text and images of text has a contrast ratio of at least 4.5:1, except for the following:",
+            "url": "https://www.w3.org/TR/WCAG22/#contrast-minimum",
+            "techniques": [
+                "Use a color contrast checking tool to verify that text and images of text meet the 4.5:1 contrast ratio requirement.",
+                "Choose color palettes that inherently provide sufficient contrast between text and background.",
+                "Apply CSS to adjust text colors or background colors to achieve the required contrast ratio.",
+                "Implement adjustable contrast settings within the application to allow users to customize their viewing experience.",
+                "Use larger text (at least 18pt or 14pt bold) to benefit from the lower contrast ratio requirement of 3:1, if appropriate."
+            ],
+            "failures": [
+                "Selecting text and background colors that do not meet the minimum contrast ratio, such as light gray text on a white background.",
+                "Overlooking text within images or graphical elements, leading to insufficient contrast.",
+                "Providing text over complex backgrounds, such as patterned or gradient images, without ensuring adequate contrast."
+            ]
+        },
+        {
+            "name": "1.4.4 Resize text",
+            "level": "AA",
+            "description": "Except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality.",
+            "url": "https://www.w3.org/TR/WCAG22/#resize-text",
+            "techniques": [
+                "Use relative units (e.g., em, rem, percentages) for font sizes instead of fixed units (e.g., pixels, points) to allow text resizing.",
+                "Ensure that text containers can expand and wrap content appropriately when text is resized, by using flexible layouts like CSS Flexbox or Grid.",
+                "Design responsive interfaces that automatically adjust layout and elements when text size is increased, maintaining readability and usability.",
+                "Test text resizing functionality manually by zooming in up to 200% in various browsers to ensure content and functionality are preserved.",
+                "Avoid using images of text wherever possible; instead, use actual text to ensure it can be resized and readjusted easily."
+            ],
+            "failures": [
+                "Using fixed-width containers that do not allow for text expansion, causing text to overflow or be cut off when resized.",
+                "Designing interfaces that rely on pixel-perfect layouts, leading to loss of functionality or content when text size increases.",
+                "Failing to test text resizing across different browsers and devices, resulting in unexpected layout issues."
+            ]
+        },
+        {
+            "name": "1.4.5 Images of Text",
+            "level": "AA",
+            "description": "If the technologies being used can achieve the visual presentation, text is used to convey information rather than images of text except for the following:",
+            "url": "https://www.w3.org/TR/WCAG22/#images-of-text",
+            "techniques": [
+                "Use CSS and web fonts to style text instead of embedding text within images.",
+                "Implement scalable vector graphics (SVG) for decorative text elements that need to be resizable and maintain clarity.",
+                "Use HTML text elements for headlines, banners, or buttons instead of images containing text.",
+                "Provide customizable text options through web technologies that allow users to adjust font size, color, and style.",
+                "Ensure all text is selectable and searchable by using text within HTML rather than images of text."
+            ],
+            "failures": [
+                "Embedding important information within images of text without providing an equivalent text alternative.",
+                "Using images of text for headings or labels when the same effect can be achieved with styled HTML text.",
+                "Relying on images of text for content updates, making it difficult for users to perceive changes without reloading the entire image."
+            ]
+        },
+        {
+            "name": "1.4.6 Contrast (Enhanced)",
+            "level": "AAA",
+            "description": "The visual presentation of text and images of text has a contrast ratio of at least 7:1, except for the following: ",
+            "url": "https://www.w3.org/TR/WCAG22/#contrast-enhanced",
+            "techniques": [
+                "Use high-contrast color combinations for text and its background to achieve at least a 7:1 contrast ratio.",
+                "Employ CSS to increase text size or weight, which can sometimes improve contrast perception.",
+                "Utilize tools like color contrast analyzers to test and ensure your text and images of text meet the 7:1 contrast ratio.",
+                "Avoid using images of text unless absolutely necessary, and ensure any necessary images of text meet the contrast requirements.",
+                "Consider user settings for high contrast modes and ensure your application respects these settings."
+            ],
+            "failures": [
+                "Using light gray text on a white background, which often fails to meet the 7:1 contrast ratio.",
+                "Overlapping text and images where the background image reduces the contrast and readability of the text."
+            ]
+        },
+        {
+            "name": "1.4.7 Low or No Background Audio",
+            "level": "AAA",
+            "description": "For prerecorded audio-only content that (1) contains primarily speech in the foreground, (2) is not an audio CAPTCHA or audio logo, and (3) is not vocalization intended to be primarily musical expression such as singing or rapping, at least one of the following is true:",
+            "url": "https://www.w3.org/TR/WCAG22/#low-or-no-background-audio",
+            "techniques": [
+                "Provide an option to turn off or reduce background audio in prerecorded content with speech.",
+                "Use audio editing tools to reduce the volume of background sounds to at least 20 decibels lower than the foreground speech.",
+                "Offer a version of the audio content without background sounds or with minimal background interference.",
+                "Use noise-cancellation technology to isolate and enhance the clarity of the speech in the foreground.",
+                "Include transcripts or captions that accurately represent the spoken content, allowing users to access the information without relying on audio."
+            ],
+            "failures": [
+                "Including background music or sounds that are too loud and interfere with the clarity of foreground speech.",
+                "Not providing alternatives or controls to adjust or turn off background sounds for prerecorded speech content.",
+                "Using audio effects that obscure spoken content, making it difficult for users to understand."
+            ]
+        },
+        {
+            "name": "1.4.8 Visual Presentation",
+            "level": "AAA",
+            "description": "For the visual presentation of blocks of text, a mechanism is available to achieve the following:",
+            "url": "https://www.w3.org/TR/WCAG22/#visual-presentation",
+            "techniques": [
+                "Provide options for users to adjust text spacing, such as line height (1.5 times the font size), letter spacing (at least 0.12 times the font size), and word spacing (0.16 times the font size).",
+                "Ensure that text is not justified (aligned to both the left and right margins) to avoid uneven spaces between words.",
+                "Allow users to select their preferred foreground and background colors to enhance readability.",
+                "Implement a mechanism for users to choose from a range of font sizes to support readability without requiring the use of browser zoom functions.",
+                "Provide a responsive design that maintains a single column layout when text is resized or the viewport size changes, preventing horizontal scrolling."
+            ],
+            "failures": [
+                "Failing to provide a mechanism to adjust text spacing, leading to cramped or visually overwhelming blocks of text.",
+                "Using fully justified text which can create irregular spacing and reduce readability.",
+                "Not allowing users to change text and background colors, potentially causing readability issues for users with low vision or color blindness."
+            ]
+        },
+        {
+            "name": "1.4.9 Images of Text (No Exception)",
+            "level": "AAA",
+            "description": "Images of text are only used for pure decoration or where a particular presentation of text is essential to the information being conveyed.",
+            "url": "https://www.w3.org/TR/WCAG22/#images-of-text-no-exception",
+            "techniques": [
+                "Use CSS to style text instead of embedding text within images, allowing for better accessibility and scalability.",
+                "Provide a text-based alternative to any essential information conveyed through images of text, ensuring that it is accessible to all users.",
+                "Employ responsive web design techniques to ensure text scales correctly on different devices, eliminating the need for images of text for visual presentation.",
+                "Use SVGs for decorative text images when necessary, ensuring they do not convey essential information, and provide appropriate text alternatives.",
+                "Apply web fonts to achieve desired typography effects, ensuring text remains accessible and selectable."
+            ],
+            "failures": [
+                "Using images of text for headings, buttons, or links without providing an accessible text alternative.",
+                "Relying on images of text to convey essential information, making it inaccessible to screen readers and assistive technologies."
+            ]
+        },
+        {
+            "name": "1.4.10 Reflow",
+            "level": "AA",
+            "description": "Content can be presented without loss of information or functionality, and without requiring scrolling in two dimensions for:",
+            "url": "https://www.w3.org/TR/WCAG22/#reflow",
+            "techniques": [
+                "Use responsive web design principles with CSS media queries to adjust the layout for different screen sizes.",
+                "Implement flexible grid layouts, such as CSS Grid or Flexbox, to allow content to adapt and reflow properly without horizontal scrolling.",
+                "Set relative units (such as percentages, ems, or rems) for width, margins, and padding to ensure content scales appropriately.",
+                "Enable text resizing in the browser by using scalable units for fonts and not fixing font sizes in pixels.",
+                "Test the application on various devices and orientations to ensure content reflows correctly without loss of functionality or the need for two-dimensional scrolling."
+            ],
+            "failures": [
+                "Setting fixed-width containers or elements that cause horizontal scrolling on small screens.",
+                "Designing layouts that require horizontal scrolling to access critical content or functionality.",
+                "Using absolute positioning extensively, which can prevent content from reflowing properly when the viewport size changes."
+            ]
+        },
+        {
+            "name": "1.4.11 Non-text Contrast",
+            "level": "AA",
+            "description": "The visual presentation of the following have a contrast ratio of at least 3:1 against adjacent color(s):",
+            "url": "https://www.w3.org/TR/WCAG22/#non-text-contrast",
+            "techniques": [
+                "Ensure that interactive elements such as buttons and form controls have a contrast ratio of at least 3:1 with their adjacent background.",
+                "Use CSS to style borders or outlines around interactive elements to meet the contrast ratio requirement.",
+                "Employ background patterns or textures to enhance the contrast of non-text elements when color contrast alone is insufficient.",
+                "Utilize design tools or color contrast checkers to verify that graphical objects and their backgrounds meet the contrast ratio requirement.",
+                "Choose color palettes that naturally enhance contrast for both text and non-text elements in the design phase."
+            ],
+            "failures": [
+                "Designing icons or graphical objects with insufficient contrast against their background, making them difficult to distinguish.",
+                "Using low contrast for hover or focus states on interactive elements, making it hard for users to perceive changes in state."
+            ]
+        },
+        {
+            "name": "1.4.12 Text Spacing",
+            "level": "AA",
+            "description": "In content implemented using markup languages that support the following text style properties, no loss of content or functionality occurs by setting all of the following and by changing no other style property:",
+            "url": "https://www.w3.org/TR/WCAG22/#text-spacing",
+            "techniques": [
+                "Ensure that CSS stylesheets allow users to adjust line height (line spacing) to at least 1.5 times the font size.",
+                "Allow users to change the spacing following paragraphs to at least 2 times the font size without loss of content or functionality.",
+                "Permit users to adjust letter spacing (tracking) to at least 0.12 times the font size.",
+                "Enable users to modify word spacing to at least 0.16 times the font size.",
+                "Test your application by applying these text spacing adjustments to ensure no content is lost or overlaps."
+            ],
+            "failures": [
+                "Fixing text spacing properties in a way that makes it impossible for users to adjust them, leading to content being cut off or overlapping.",
+                "Creating layouts that do not accommodate increased text spacing, resulting in hidden or inaccessible content.",
+                "Relying on precise pixel-based layouts that break when text spacing is adjusted according to the given parameters."
+            ]
+        },
+        {
+            "name": "1.4.13 Content on Hover or Focus",
+            "level": "AA",
+            "description": "Where receiving and then removing pointer hover or keyboard focus triggers additional content to become visible and then hidden, the following are true:",
+            "url": "https://www.w3.org/TR/WCAG22/#content-on-hover-or-focus",
+            "techniques": [
+                "Ensure that additional content triggered by hover or focus can be dismissed without moving the pointer or focus, such as by pressing the Escape key.",
+                "Make the additional content hoverable or focusable to allow users ample time to perceive and interact with it.",
+                "Ensure that additional content remains visible until the user dismisses it or the hover/focus trigger is removed, providing sufficient time for interaction.",
+                "Provide clear visual indicators, such as outlines or borders, to show when content is being hovered over or focused.",
+                "Use CSS transitions to smoothly show and hide additional content, ensuring it is not abrupt and confusing."
+            ],
+            "failures": [
+                "Automatically hiding additional content immediately when the pointer or focus is moved away, without providing a way to keep it visible temporarily.",
+                "Making additional content disappear when keyboard focus moves to it, preventing interaction.",
+                "Not providing a mechanism for dismissing additional content via keyboard, such as not supporting the Escape key to close tooltips or popovers."
+            ]
+        },
+        {
+            "name": "2.1.1 Keyboard",
+            "level": "A",
+            "description": "All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes, except where the underlying function requires input that depends on the path of the user's movement and not just the endpoints.",
+            "url": "https://www.w3.org/TR/WCAG22/#keyboard",
+            "techniques": [
+                "Ensure all interactive elements (e.g., buttons, links, form controls) are reachable and operable using the keyboard's Tab, Enter, and Space keys.",
+                "Use semantic HTML elements such as `<button>` and `<a>` for interactive controls to inherently support keyboard interaction.",
+                "Implement custom keyboard navigation for complex components (e.g., sliders, modals) using standard keyboard shortcuts like arrow keys, Escape, and Tab.",
+                "Provide a logical and intuitive tab order by using the HTML `tabindex` attribute strategically, ensuring it follows the visual flow of the content.",
+                "Test web applications with only a keyboard to ensure all functionality is accessible without a mouse, including any dynamically added content."
+            ],
+            "failures": [
+                "Custom interactive elements without keyboard support, such as using `<div>` or `<span>` for buttons without additional scripting to handle keyboard events.",
+                "Relying solely on mouse events (e.g., `onclick`) for functionality, without providing equivalent keyboard event handlers (e.g., `onkeydown` or `onkeypress`).",
+                "Omitting focus management in interactive sequences, such as modals or dropdown menus, causing users to get trapped in or unable to access these components via keyboard."
+            ]
+        },
+        {
+            "name": "2.1.2 No Keyboard Trap",
+            "level": "A",
+            "description": "If keyboard focus can be moved to a component of the page using a keyboard interface, then focus can be moved away from that component using only a keyboard interface, and, if it requires more than unmodified arrow or tab keys or other standard exit methods, the user is advised of the method for moving focus away.",
+            "url": "https://www.w3.org/TR/WCAG22/#no-keyboard-trap",
+            "techniques": [
+                "Ensure all interactive components can be navigated using standard keyboard navigation keys, such as Tab and Shift + Tab, to move focus forward and backward, respectively.",
+                "Implement a keyboard shortcut or mechanism to allow users to exit custom interactive components (e.g., a modal dialog) if the standard navigation keys aren't sufficient.",
+                "Provide clear instructions or guidance on how to navigate away from components that may require non-standard methods for moving the focus.",
+                "Test all interactive elements with keyboard-only navigation to ensure focus can be moved both to and from them without difficulty.",
+                "Use focus management techniques, such as setting focus to the first focusable element when entering a component and returning focus to the triggering element upon exit."
+            ],
+            "failures": [
+                "Creating custom components (e.g., JavaScript widgets) that trap the keyboard focus without providing a way to move focus away using standard keys or a clear alternative method.",
+                "Failing to notify users of non-standard methods required to exit a component, leading to potential confusion and inability to navigate.",
+                "Relying solely on mouse-based interactions, thus neglecting to provide equivalent keyboard functionality."
+            ]
+        },
+        {
+            "name": "2.1.3 Keyboard (No Exception)",
+            "level": "AAA",
+            "description": "All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes.",
+            "url": "https://www.w3.org/TR/WCAG22/#keyboard-no-exception",
+            "techniques": [
+                "Ensure all interactive elements (like buttons, links, and form controls) are focusable and operable via the keyboard by using standard HTML controls or adding appropriate tabindex attributes.",
+                "Implement logical and sequential keyboard navigation by using the tabindex attribute to manage focus order only when necessary.",
+                "Provide keyboard shortcuts for commonly used actions and ensure they do not conflict with existing browser or assistive technology shortcuts.",
+                "Ensure that any custom widgets or components are fully operable with the keyboard by using JavaScript to manage focus and capture keyboard events appropriately.",
+                "Use WAI-ARIA roles, states, and properties to enhance keyboard accessibility for custom components, ensuring they are communicated correctly to assistive technologies."
+            ],
+            "failures": [
+                "Requiring mouse-only actions for functionality, such as dragging and dropping, without providing an equivalent keyboard alternative.",
+                "Implementing keyboard traps where a user can become stuck in a particular section of a web page without the ability to navigate away using the keyboard.",
+                "Designing interactive elements with specific timing requirements that do not allow users adequate time to perform keyboard operations."
+            ]
+        },
+        {
+            "name": "2.1.4 Character Key Shortcuts",
+            "level": "A",
+            "description": "If a keyboard shortcut is implemented in content using only letter (including upper- and lower-case letters), punctuation, number, or symbol characters, then at least one of the following is true:",
+            "url": "https://www.w3.org/TR/WCAG22/#character-key-shortcuts",
+            "techniques": [
+                "Allow users to remap or disable character key shortcuts to avoid unintended activation.",
+                "Implement a modifier key (such as Ctrl, Alt, or Command) in combination with character key shortcuts to prevent accidental keystrokes.",
+                "Provide a clear and accessible method for users to review, modify, or disable keyboard shortcuts within the application settings.",
+                "Ensure that any keyboard shortcuts are documented and easily discoverable within the application's help or accessibility section.",
+                "Use role=\"application\" only when necessary, as it can change how keyboard keys are interpreted by assistive technologies, and ensure all shortcuts are announced properly."
+            ],
+            "failures": [
+                "Implementing character key shortcuts without any option for users to disable or customize them.",
+                "Using single-character key shortcuts that interfere with common typing tasks or screen reader commands, leading to accidental activation.",
+                "Failing to notify users of the presence of keyboard shortcuts, especially those who rely on screen readers or other assistive technologies."
+            ]
+        },
+        {
+            "name": "2.2.1 Timing Adjustable",
+            "level": "A",
+            "description": "For each time limit that is set by the content, at least one of the following is true:",
+            "url": "https://www.w3.org/TR/WCAG22/#timing-adjustable",
+            "techniques": [
+                "Provide users with the option to turn off, adjust, or extend time limits before they encounter them.",
+                "Implement a mechanism where users can request more time with a simple action like pressing a button.",
+                "Ensure that any time limits are communicated clearly to users in advance, allowing them to prepare accordingly.",
+                "Offer a setting where users can specify their preferred time limits, which the application respects during interactions.",
+                "Design the application to not impose time limits on essential tasks unless absolutely necessary, thereby avoiding the need for adjustments."
+            ],
+            "failures": [
+                "Implementing time limits without providing any option for users to adjust or disable them.",
+                "Failing to notify users about time limits in a way that is perceivable and understandable before they begin interacting with time-sensitive content.",
+                "Automatically terminating a session or transaction due to a time limit without giving users a chance to save their work or extend the time."
+            ]
+        },
+        {
+            "name": "2.2.2 Pause, Stop, Hide",
+            "level": "A",
+            "description": "For moving, blinking, scrolling, or auto-updating information, all of the following are true:",
+            "url": "https://www.w3.org/TR/WCAG22/#pause-stop-hide",
+            "techniques": [
+                "Provide user controls to pause, stop, or hide moving or auto-updating content, such as \"pause\" and \"stop\" buttons for carousels or auto-refreshing news feeds.",
+                "Use the `prefers-reduced-motion` CSS media query to respect users' system preferences for reduced motion, minimizing automatic animations or transitions.",
+                "Limit the use of animations or auto-updating content to only when necessary, and ensure they do not start automatically or without user interaction.",
+                "Implement a mechanism to allow users to control the frequency of updates, such as providing options to manually refresh content rather than auto-updating.",
+                "Ensure any time-based media or animations provide sufficient time for users to read and interact with the content before it changes or disappears."
+            ],
+            "failures": [
+                "Implementing auto-scrolling text or carousels without providing a way for users to pause or stop the movement.",
+                "Using animations or auto-updating content that start automatically without user consent and lack controls to stop or hide them."
+            ]
+        },
+        {
+            "name": "2.2.3 No Timing",
+            "level": "AAA",
+            "description": "Timing is not an essential part of the event or activity presented by the content, except for non-interactive synchronized media and real-time events.",
+            "url": "https://www.w3.org/TR/WCAG22/#no-timing",
+            "techniques": [
+                "Design activities and content that do not rely on time limits to be completed, ensuring that users can engage at their own pace.",
+                "Provide configurable time limits where users can adjust or extend the time as needed, or remove the time limit altogether.",
+                "Offer a mechanism to pause, stop, or hide moving, blinking, or scrolling information to prevent time-based constraints.",
+                "For content that typically has time constraints (e.g., quizzes), provide an option to turn off the timer or allow unlimited time to complete the task.",
+                "Use asynchronous loading for content updates to prevent time-dependent constraints in receiving information."
+            ],
+            "failures": [
+                "Implementing time-based quizzes or tests without offering an option to turn off or extend the timer.",
+                "Creating content that automatically advances or expires without user control, such as auto-advancing slideshows or session timeouts without warnings or options to extend."
+            ]
+        },
+        {
+            "name": "2.2.4 Interruptions",
+            "level": "AAA",
+            "description": "Interruptions can be postponed or suppressed by the user, except interruptions involving an emergency.",
+            "url": "https://www.w3.org/TR/WCAG22/#interruptions",
+            "techniques": [
+                "Provide users with a setting to control notifications and allow them to suppress non-emergency alerts.",
+                "Implement a \"Do Not Disturb\" mode that users can activate to pause non-critical notifications.",
+                "Use session storage or cookies to remember user preferences for handling interruptions across sessions.",
+                "Design a notification center where users can review past notifications at their convenience.",
+                "Clearly distinguish between emergency and non-emergency notifications, ensuring only emergency notifications bypass user controls."
+            ],
+            "failures": [
+                "Automatically pushing non-emergency pop-up notifications without user control to suppress them.",
+                "Failing to provide an option for users to pause or defer updates or alerts that interrupt their activities."
+            ]
+        },
+        {
+            "name": "2.2.5 Re-authenticating",
+            "level": "AAA",
+            "description": "When an authenticated session expires, the user can continue the activity without loss of data after re-authenticating.",
+            "url": "https://www.w3.org/TR/WCAG22/#re-authenticating",
+            "techniques": [
+                "Implement session management that temporarily saves user progress in a secure, server-side state, allowing restoration after re-authentication.",
+                "Use client-side storage (such as localStorage or sessionStorage) to save unsaved user data temporarily, ensuring it can be retrieved post re-authentication.",
+                "Provide a warning before session expiration, with an option to extend the session, helping users to avoid disruption.",
+                "Design the application flow to automatically prompt for re-authentication when the session expires, preserving the user's current activity and context.",
+                "Use tokens or secure cookies to manage sessions, ensuring that user data can be securely restored after re-authentication."
+            ],
+            "failures": [
+                "Automatically logging out users without saving their progress or providing a way to restore it upon re-authentication.",
+                "Designing authentication processes that do not maintain the user's activity context, causing them to lose their place or data after re-authenticating.",
+                "Failing to warn users before session expiration, leading to unexpected data loss."
+            ]
+        },
+        {
+            "name": "2.2.6 Timeouts",
+            "level": "AAA",
+            "description": "Users are warned of the duration of any user inactivity that could cause data loss, unless the data is preserved for more than 20 hours when the user does not take any actions.",
+            "url": "https://www.w3.org/TR/WCAG22/#timeouts",
+            "techniques": [
+                "Implement a modal or alert that notifies users of impending session timeouts and allows them to extend the session if desired.",
+                "Provide a countdown timer visible on the screen that indicates the time remaining before a session ends due to inactivity.",
+                "Ensure that any warning messages or notifications about timeouts are accessible via screen readers and other assistive technologies.",
+                "Allow users to customize the duration of inactivity before a timeout occurs, where feasible, to accommodate individual needs.",
+                "Preserve user data automatically for more than 20 hours or implement autosave functionality to prevent data loss during timeouts."
+            ],
+            "failures": [
+                "Not informing users about session timeouts that could lead to data loss.",
+                "Providing insufficient or inaccessible timeout warnings that cannot be detected by screen readers or other assistive technologies."
+            ]
+        },
+        {
+            "name": "2.3.1 Three Flashes or Below Threshold",
+            "level": "A",
+            "description": "Web pages do not contain anything that flashes more than three times in any one second period, or the flash is below the general flash and red flash thresholds.",
+            "url": "https://www.w3.org/TR/WCAG22/#three-flashes-or-below-threshold",
+            "techniques": [
+                "Limit animations or flashing content to three flashes or fewer per second to comply with seizure safety requirements.",
+                "Use CSS animations and transitions with timing functions that prevent rapid flashing or create a smooth transition.",
+                "Implement controls to allow users to pause, stop, or hide any content that flashes.",
+                "Utilize tools or software to test and ensure that any flashing content is below the general flash and red flash thresholds.",
+                "Design content with alternative visual effects that do not involve flashing, such as fades or other non-flashing animations."
+            ],
+            "failures": [
+                "Including banner ads or video content that flashes more than three times per second without testing for flash thresholds.",
+                "Creating interactive elements or notifications that involve rapid flashing, which exceeds the recommended flash rate.",
+                "Ignoring the need to test content for flashing frequency, potentially leading to seizure-inducing elements on the page."
+            ]
+        },
+        {
+            "name": "2.3.2 Three Flashes",
+            "level": "AAA",
+            "description": "Web pages do not contain anything that flashes more than three times in any one second period.",
+            "url": "https://www.w3.org/TR/WCAG22/#three-flashes",
+            "techniques": [
+                "Avoid using any content or animations that flash or blink more than three times in a one-second period.",
+                "Implement controls to allow users to pause or stop any flashing content if it is essential for the design.",
+                "Use CSS animations or JavaScript timers to ensure that any flashing effects adhere to the three flashes per second limit.",
+                "Test any video content for flashing sequences and edit or remove sections that exceed the flash threshold.",
+                "Provide an alternative non-flashing version of content when flashing effects are necessary for visual emphasis."
+            ],
+            "failures": [
+                "Including GIFs or animations that have rapid, repetitive flashing sequences beyond the three times per second limit.",
+                "Using JavaScript or CSS animations that inadvertently create flashing effects exceeding the allowed frequency.",
+                "Embedding videos with sections that contain excessive flashing without editing or providing warnings and controls."
+            ]
+        },
+        {
+            "name": "2.3.3 Animation from Interactions",
+            "level": "AAA",
+            "description": "Motion animation triggered by interaction can be disabled, unless the animation is essential to the functionality or the information being conveyed.",
+            "url": "https://www.w3.org/TR/WCAG22/#animation-from-interactions",
+            "techniques": [
+                "Provide a user setting or preference option to disable motion animation triggered by interactions.",
+                "Use CSS media queries, such as `prefers-reduced-motion`, to automatically reduce or eliminate animations for users who have set this preference in their operating system or browser.",
+                "Implement animations using JavaScript with a check for user preferences, allowing animations to be conditionally disabled based on user settings.",
+                "Design animations to be non-essential, ensuring that all critical information or functionality is accessible without requiring the animation.",
+                "Offer a pause/resume button for animations that can be controlled by the user, allowing them to stop or start the animation as desired."
+            ],
+            "failures": [
+                "Automatically playing animations upon user interactions without providing an option to disable them.",
+                "Relying on animations to convey essential information or functionality without providing alternative methods to access the same content.",
+                "Ignoring user settings for reduced motion and forcing animations regardless of user preferences."
+            ]
+        },
+        {
+            "name": "2.4.1 Bypass Blocks",
+            "level": "A",
+            "description": "A mechanism is available to bypass blocks of content that are repeated on multiple Web pages.",
+            "url": "https://www.w3.org/TR/WCAG22/#bypass-blocks",
+            "techniques": [
+                "Provide a \"Skip to Main Content\" link at the top of each page that allows users to bypass repetitive navigation links.",
+                "Use landmarks (e.g., `<header>`, `<nav>`, `<main>`, `<footer>`) to define regions of the page and assist screen reader users in navigating through repeated content.",
+                "Implement ARIA roles such as `role=\"navigation\"` and `role=\"main\"` to identify sections of the page and help assistive technologies bypass repetitive blocks.",
+                "Use headings (`<h1>`, `<h2>`, etc.) effectively to create a logical structure that allows users to skip over blocks of repeated content using heading navigation techniques.",
+                "Ensure that keyboard users can easily tab past repetitive blocks of content without having to navigate through each link individually."
+            ],
+            "failures": [
+                "Omitting a \"Skip to Main Content\" link, forcing users to navigate through repeated navigation links on every page.",
+                "Failing to use landmarks or ARIA roles, leaving users without a mechanism to bypass repeated blocks of content.",
+                "Structuring pages in a way that requires excessive tabbing through repetitive content, such as navigation menus, without providing a bypass method."
+            ]
+        },
+        {
+            "name": "2.4.2 Page Titled",
+            "level": "A",
+            "description": "Web pages have titles that describe topic or purpose.",
+            "url": "https://www.w3.org/TR/WCAG22/#page-titled",
+            "techniques": [
+                "Use a clear and descriptive `<title>` element in the `<head>` section of each HTML document to convey the main topic or purpose of the page.",
+                "Ensure that the `<title>` element is unique and specific to each page, reflecting the content or function of that particular page.",
+                "Position the most relevant and specific information at the beginning of the title to improve clarity and visibility in browser tabs and search results.",
+                "Maintain consistency in title format across the website to help users understand the structure and purpose of your site (e.g., \"Product Name - Category - Site Name\").",
+                "Regularly review and update page titles to ensure they remain relevant and accurate as page content changes."
+            ],
+            "failures": [
+                "Using vague or generic titles like \"Untitled Page\" or \"New Page\" that do not describe the page's content or purpose.",
+                "Having identical titles for different pages, making it difficult for users to distinguish between pages in browser tabs or history."
+            ]
+        },
+        {
+            "name": "2.4.3 Focus Order",
+            "level": "A",
+            "description": "If a Web page can be navigated sequentially and the navigation sequences affect meaning or operation, focusable components receive focus in an order that preserves meaning and operability.",
+            "url": "https://www.w3.org/TR/WCAG22/#focus-order",
+            "techniques": [
+                "Use the tabindex attribute to manage focus order, ensuring it follows the logical sequence of the content.",
+                "Structure your HTML markup in a logical order that matches the visual presentation, to naturally guide focus.",
+                "Ensure all interactive elements, such as buttons and links, are included in the natural tab order.",
+                "Regularly test the focus order using keyboard-only navigation to identify any areas that do not follow a logical sequence.",
+                "Use skip navigation links to allow users to bypass repetitive content, ensuring efficient focus navigation."
+            ],
+            "failures": [
+                "Rearranging elements visually with CSS while leaving the focus order in the HTML unchanged, leading to a confusing navigation experience.",
+                "Overusing the tabindex attribute to create a focus order that is different from the natural DOM order, causing unexpected navigation paths."
+            ]
+        },
+        {
+            "name": "2.4.4 Link Purpose (In Context)",
+            "level": "A",
+            "description": "The purpose of each link can be determined from the link text alone or from the link text together with its programmatically determined link context, except where the purpose of the link would be ambiguous to users in general.",
+            "url": "https://www.w3.org/TR/WCAG22/#link-purpose-in-context",
+            "techniques": [
+                "Use descriptive link text that clearly indicates the purpose or destination of the link.",
+                "Provide additional context for links that might be ambiguous by including surrounding text or headings that clarify the link's purpose.",
+                "Use ARIA attributes such as `aria-label` or `aria-labelledby` to provide additional context for links when the link text alone is insufficient.",
+                "Group related links under a common heading to help users understand the context and purpose of each link in the group.",
+                "Ensure that link text is meaningful and specific, avoiding generic phrases like \"click here\" or \"read more\" unless additional context clarifies the purpose."
+            ],
+            "failures": [
+                "Using vague or non-descriptive link text that does not indicate the purpose or destination of the link.",
+                "Relying solely on visual cues, such as color or position, to convey the purpose of a link without providing programmatically determined context.",
+                "Providing link text that is ambiguous and does not provide enough information for users to understand the link\u2019s purpose, even when considered with the surrounding context."
+            ]
+        },
+        {
+            "name": "2.4.5 Multiple Ways",
+            "level": "AA",
+            "description": "More than one way is available to locate a Web page within a set of Web pages except where the Web Page is the result of, or a step in, a process.",
+            "url": "https://www.w3.org/TR/WCAG22/#link-purpose-in-context",
+            "techniques": [
+                "Provide a navigation menu that includes links to all major sections of the website.",
+                "Implement a search function that allows users to enter keywords to locate pages or content.",
+                "Include a sitemap page that outlines the structure of the website and provides direct links to pages.",
+                "Offer a breadcrumb trail on every page to help users understand their location within the website hierarchy.",
+                "Use consistent and descriptive headings and link text throughout the site to enable easier scanning and navigation."
+            ],
+            "failures": [
+                "Relying solely on a search function without offering other navigation methods like menus or links.",
+                "Not providing a consistent navigation menu across the web pages.",
+                "Omitting a sitemap or similar tool that helps users find pages when complex navigation is present."
+            ]
+        },
+        {
+            "name": "2.4.6 Headings and Labels",
+            "level": "AA",
+            "description": "Headings and labels describe topic or purpose.",
+            "url": "https://www.w3.org/TR/WCAG22/#headings-and-labels",
+            "techniques": [
+                "Use descriptive and meaningful text for headings that clearly communicate the content or purpose of the sections they introduce.",
+                "Implement semantic HTML heading elements (e.g., `<h1>`, `<h2>`, etc.) in a logical and hierarchical order to create a clear structure for the content.",
+                "Use clear and concise labels for form fields and interactive elements that accurately describe their function or purpose.",
+                "Ensure headings and labels are programmatically associated with their respective content or controls, such as using the `for` attribute in `<label>` elements to associate them with form fields.",
+                "Regularly review and update headings and labels to ensure they remain relevant and accurately reflect the content or functionality as the application evolves."
+            ],
+            "failures": [
+                "Using generic or non-descriptive headings such as \"Section 1\" or \"More Information\" that do not convey the content or purpose of the section.",
+                "Failing to associate labels correctly with form inputs, leading to confusion about the purpose of the field for users relying on assistive technologies."
+            ]
+        },
+        {
+            "name": "2.4.7 Focus Visible",
+            "level": "AA",
+            "description": "Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible.",
+            "url": "https://www.w3.org/TR/WCAG22/#focus-visible",
+            "techniques": [
+                "Use CSS to style focus indicators with properties like `outline`, `border`, or `box-shadow` to ensure they are visible and distinguishable.",
+                "Implement custom focus styles using the `:focus` pseudo-class to enhance visibility beyond the default browser focus styles.",
+                "Ensure that focus indicators have sufficient contrast between the focused element's border and its background to accommodate users with visual impairments.",
+                "Maintain focus order that is logical and intuitive, matching the visual layout of the page to prevent confusion for keyboard users.",
+                "Test focus visibility across different browsers and devices to ensure consistency and accessibility for all users."
+            ],
+            "failures": [
+                "Removing focus outlines or indicators using CSS properties like `outline: none` without providing an alternative visible focus indicator.",
+                "Creating custom focus styles that do not meet sufficient color contrast requirements, making them difficult to see for users with visual impairments.",
+                "Overriding browser default focus styles without ensuring that the new styles are visible and provide clear indication of focused elements."
+            ]
+        },
+        {
+            "name": "2.4.8 Location",
+            "level": "AAA",
+            "description": "Information about the user's location within a set of Web pages is available.",
+            "url": "https://www.w3.org/TR/WCAG22/#location",
+            "techniques": [
+                "Implement a breadcrumb navigation trail to show the user\u2019s path within the website.",
+                "Use clear and descriptive page titles that reflect the content and location within the site hierarchy.",
+                "Provide a site map or table of contents to give an overview of the website structure.",
+                "Use consistent navigation menus across web pages to help users understand their location.",
+                "Include a \"You are here\" indicator in navigation menus to highlight the user's current page."
+            ],
+            "failures": [
+                "Omitting breadcrumb navigation on complex websites with multiple levels.",
+                "Using ambiguous or generic page titles that do not indicate the user\u2019s location within the site.",
+                "Changing navigation menu structures or links between pages, causing disorientation."
+            ]
+        },
+        {
+            "name": "2.4.9 Link Purpose (Link Only)",
+            "level": "AAA",
+            "description": "A mechanism is available to allow the purpose of each link to be identified from link text alone, except where the purpose of the link would be ambiguous to users in general.",
+            "url": "https://www.w3.org/TR/WCAG22/#link-purpose-link-only",
+            "techniques": [
+                "Use descriptive link text that clearly indicates the purpose or destination of the link (e.g., \"Download the annual report\" instead of \"Click here\").",
+                "Ensure that identical links on the same page have the same link text when they point to the same destination.",
+                "Use meaningful text for links within navigation menus that reflects the content of the pages they link to.",
+                "If necessary, provide additional context for the link in the surrounding text or use hidden text techniques for screen readers to clarify link purpose.",
+                "Regularly review and update link text to ensure it remains clear and relevant as content evolves."
+            ],
+            "failures": [
+                "Using vague link text such as \"Read more\" or \"Click here\" without contextual information.",
+                "Relying on the surrounding visual context to convey the link's purpose without ensuring it is clear from the link text alone.",
+                "Having multiple links with the same text that lead to different destinations without additional context to differentiate them."
+            ]
+        },
+        {
+            "name": "2.4.10 Section Headings",
+            "level": "AAA",
+            "description": "Section headings are used to organize the content.",
+            "url": "https://www.w3.org/TR/WCAG22/#section-headings",
+            "techniques": [
+                "Use appropriate HTML heading elements (e.g., `<h1>` to `<h6>`) to create a clear and logical structure for sections within the content.",
+                "Ensure that headings are descriptive and accurately reflect the topic or purpose of the section they introduce.",
+                "Maintain a hierarchical structure by using headings in a sequential order without skipping levels (e.g., do not jump from `<h1>` to `<h3>`).",
+                "Provide visually distinct styles for headings to differentiate them from regular text, aiding users in scanning the content.",
+                "Use ARIA landmarks (e.g., `role=\"banner\"`, `role=\"main\"`, `role=\"complementary\"`) to enhance navigation, especially for sections that do not naturally fit into the heading hierarchy."
+            ],
+            "failures": [
+                "Using non-heading elements (e.g., `<div>` or `<span>`) styled to look like headings without proper semantic markup.",
+                "Creating visual headings without corresponding semantic structure, which can confuse screen readers and other assistive technologies.",
+                "Skipping heading levels, which disrupts the logical flow and structure of the content, making it difficult for users to navigate and understand."
+            ]
+        },
+        {
+            "name": "2.4.11 Focus Not Obscured (Minimum)",
+            "level": "AA",
+            "description": "When a user interface component receives keyboard focus, the component is not entirely hidden due to author-created content.",
+            "url": "https://www.w3.org/TR/WCAG22/#focus-not-obscured-minimum",
+            "techniques": [
+                "Ensure that CSS styles do not position focused elements off-screen or under other content.",
+                "Use a transparent overlay only if it doesn't block the visibility of focused elements.",
+                "Implement focus management that scrolls the focused element into view if it\u2019s partially or fully obscured.",
+                "Test and adjust any fixed or sticky headers that may overlap and hide focused elements.",
+                "Use browser-native focus styles or custom focus indicators that maintain visibility when focus is applied."
+            ],
+            "failures": [
+                "Positioning a modal or pop-up that hides the focused element underneath it.",
+                "Applying CSS styles that cause an element to be fully hidden when it receives focus.",
+                "Implementing animations or transitions that move the focused element out of view."
+            ]
+        },
+        {
+            "name": "2.4.12 Focus Not Obscured (Enhanced)",
+            "level": "AAA",
+            "description": "When a user interface component receives keyboard focus, no part of the component is hidden by author-created content.",
+            "url": "https://www.w3.org/TR/WCAG22/#focus-not-obscured-enhanced",
+            "techniques": [
+                "Ensure that custom modals or overlays do not cover the focused element by adjusting their position or opacity.",
+                "Use CSS to manage z-index values and ensure focused elements remain visible above other content.",
+                "Implement scroll or reposition functions that automatically bring the focused element into view if it is obscured by other content.",
+                "Design layouts that avoid fixed-position elements which might overlap and hide focused components.",
+                "Test keyboard navigation thoroughly across various screen sizes and zoom levels to ensure focus is not obscured."
+            ],
+            "failures": [
+                "Allowing fixed headers or footers to cover focused elements when navigating with the keyboard.",
+                "Designing pop-up elements that obscure the focus without providing a mechanism to reposition or dismiss them.",
+                "Using CSS styles that hide focused elements behind other content or make them less visible without providing alternate methods to access them."
+            ]
+        },
+        {
+            "name": "2.4.13 Focus Appearance",
+            "level": "AAA",
+            "description": "When the keyboard focus indicator is visible, an area of the focus indicator meets all the following:",
+            "url": "https://www.w3.org/TR/WCAG22/#focus-appearance",
+            "techniques": [
+                "Ensure the focus indicator has a minimum contrast ratio of 3:1 with the adjacent background.",
+                "Use CSS to create a clearly visible focus outline, such as a solid or dashed border around the element.",
+                "Increase the thickness of the focus indicator to make it more noticeable, for example, by using a 2-pixel border.",
+                "Implement a custom focus style that clearly distinguishes focused elements from unfocused ones, such as changing the background color or adding an outline.",
+                "Make sure the focus indicator is not obscured by other content or styling, ensuring it remains visible at all times."
+            ],
+            "failures": [
+                "Having a focus indicator that is too subtle or blends into the background, making it difficult to perceive.",
+                "Removing the default browser focus indicator without providing an adequate replacement that meets visibility requirements.",
+                "Designing focus indicators that rely solely on color changes without sufficient contrast or additional visual cues."
+            ]
+        },
+        {
+            "name": "2.5.1 Pointer Gestures",
+            "level": "A",
+            "description": "All functionality that uses multipoint or path-based gestures for operation can be operated with a single pointer without a path-based gesture, unless a multipoint or path-based gesture is essential.",
+            "url": "https://www.w3.org/TR/WCAG22/#pointer-gestures",
+            "techniques": [
+                "Provide alternative single-tap or click actions for functionalities that typically require multipoint gestures, like pinch-to-zoom.",
+                "Ensure that all swipe-based navigation can also be performed using buttons or links that require a single click or tap.",
+                "Implement single-tap or click alternatives for path-based gestures like drawing or dragging, such as using buttons to perform the same action.",
+                "Use context menus or long-press actions to offer alternative single-pointer options for complex gestures.",
+                "Allow customization of gesture-based controls, enabling users to select single-pointer options through settings."
+            ],
+            "failures": [
+                "Requiring pinch-to-zoom functionality without providing a single-tap or click-to-zoom alternative.",
+                "Implementing swipe-based navigation with no button or link alternative available for single-pointer use.",
+                "Designing features that rely on drawing or dragging paths without providing alternative actions for users who cannot perform path-based gestures."
+            ]
+        },
+        {
+            "name": "2.5.2 Pointer Cancellation",
+            "level": "A",
+            "description": "For functionality that can be operated using a single pointer, at least one of the following is true:",
+            "url": "https://www.w3.org/TR/WCAG22/#pointer-cancellation",
+            "techniques": [
+                "Implement a mechanism to cancel a pointer action, such as pressing the 'Esc' key to cancel a drag-and-drop operation.",
+                "Design interfaces where the activation of a control (e.g., button or link) occurs on the release of the pointer (mouseup event) rather than on the initial press (mousedown event).",
+                "Provide an undo option for actions triggered by a pointer, allowing users to revert any unintended actions.",
+                "Ensure that down events (e.g., mousedown, touchstart) do not trigger any irreversible actions without a subsequent up event (e.g., mouseup, touchend).",
+                "Use confirmation dialogs or messages for actions that have significant consequences, allowing users to confirm or cancel the action before it is executed."
+            ],
+            "failures": [
+                "Triggering actions on the mousedown or touchstart events without providing a way to cancel the action if the user decides not to complete it.",
+                "Implementing drag-and-drop functionality without an option to cancel the action midway or revert it after completion."
+            ]
+        },
+        {
+            "name": "2.5.3 Label in Name",
+            "level": "A",
+            "description": "For user interface components with labels that include text or images of text, the name contains the text that is presented visually.",
+            "url": "https://www.w3.org/TR/WCAG22/#label-in-name",
+            "techniques": [
+                "Ensure the accessible name of a button or link matches the visible text label, such as using the same text content for both the `aria-label` and the button's visible text.",
+                "Utilize tools like screen readers to verify that the spoken name of a component matches the visible label text.",
+                "Use the `aria-labelledby` attribute to reference visible text elements directly for complex UI components to ensure consistency between the visual label and the accessible name.",
+                "Regularly audit and test user interface components with assistive technologies to ensure that the names are correctly implemented according to the visible text.",
+                "Maintain a standardized naming convention across the web application for consistency and clarity in labeling UI components."
+            ],
+            "failures": [
+                "Having a mismatch between the text shown on a button and the text used in the `aria-label` attribute.",
+                "Using images of text as labels without providing a matching accessible name that includes the same text.",
+                "Dynamically updating the visible label text of a component without updating the corresponding accessible name or `aria-label` to reflect the changes."
+            ]
+        },
+        {
+            "name": "2.5.4 Motion Actuation",
+            "level": "A",
+            "description": "Functionality that can be operated by device motion or user motion can also be operated by user interface components and responding to the motion can be disabled to prevent accidental actuation, except when:",
+            "url": "https://www.w3.org/TR/WCAG22/#motion-actuation",
+            "techniques": [
+                "Provide alternative user interface controls that do not rely on motion detection, such as buttons or gestures that can be activated via touch or click.",
+                "Implement a toggle option in the settings to allow users to disable motion detection features and rely solely on traditional input methods.",
+                "Use device sensors to detect when a user is in a moving environment (e.g., a car) and automatically disable motion-based controls to prevent accidental activation.",
+                "Ensure that any motion-based actions can be undone or confirmed through a secondary action to prevent unintended consequences.",
+                "Clearly explain in the user documentation or help section how motion-based interactions function and how they can be disabled."
+            ],
+            "failures": [
+                "Relying solely on device motion (e.g., shaking or tilting) to trigger critical actions without providing alternative input methods.",
+                "Failing to provide a mechanism for users to disable motion-based functionality, leading to accidental actions in certain environments.",
+                "Implementing motion-based controls without clear documentation or instructions on how to use them and disable them if necessary."
+            ]
+        },
+        {
+            "name": "2.5.5 Target Size",
+            "level": "AAA",
+            "description": "The size of the target for pointer inputs is at least 44 by 44 CSS pixels except when:",
+            "url": "https://www.w3.org/TR/WCAG22/#target-size",
+            "techniques": [
+                "Design touch targets such as buttons and links with a minimum size of 44 by 44 CSS pixels.",
+                "Add padding around smaller interactive elements to ensure the overall clickable area meets the minimum target size.",
+                "Use responsive design techniques to adjust touch target sizes based on screen size and resolution to maintain accessibility on different devices.",
+                "Implement spacing between touch targets to prevent accidental activation of adjacent controls.",
+                "Use CSS media queries to increase touch target sizes on touch-enabled devices."
+            ],
+            "failures": [
+                "Designing buttons or links with touch target sizes smaller than 44 by 44 CSS pixels without a justified exception.",
+                "Overlapping interactive elements, making it difficult for users to accurately select their intended target.",
+                "Relying on device-specific features, like pinch-to-zoom, to compensate for small touch target sizes."
+            ]
+        },
+        {
+            "name": "2.5.6 Concurrent Input Mechanisms",
+            "level": "AAA",
+            "description": "Web content does not restrict use of input modalities available on a platform except where the restriction is essential, required to ensure the security of the content, or required to respect user settings.",
+            "url": "https://www.w3.org/TR/WCAG22/#concurrent-input-mechanisms",
+            "techniques": [
+                "Enable support for multiple input methods, such as keyboard, mouse, touch, and voice, without disabling any of them unless absolutely necessary.",
+                "Use input elements that are inherently compatible with various input methods, such as HTML buttons and links, which can be activated via keyboard, mouse, or touch.",
+                "Provide user preferences to choose their preferred input method and respect these settings across sessions.",
+                "Implement event listeners for multiple input types (e.g., click, touchstart, keydown) to ensure that users can interact with content using their preferred method.",
+                "Regularly test web applications with different input methods to ensure consistent functionality and accessibility."
+            ],
+            "failures": [
+                "Restricting a form or feature to be accessible only by mouse clicks when it could be used with a keyboard or touch input.",
+                "Disabling touch interactions on touch-enabled devices, forcing users to use a keyboard or mouse without a valid reason.",
+                "Implementing security measures that unnecessarily block certain input modalities instead of designing them to accommodate multiple input types."
+            ]
+        },
+        {
+            "name": "2.5.7 Dragging Movements",
+            "level": "AA",
+            "description": "All functionality that uses a dragging movement for operation can be achieved by a single pointer without dragging, unless dragging is essential or the functionality is determined by the user agent and not modified by the author.",
+            "url": "https://www.w3.org/TR/WCAG22/#dragging-movements",
+            "techniques": [
+                "Provide alternative controls, such as buttons or sliders, that allow users to perform the same action without needing to drag.",
+                "Implement keyboard controls to enable users to complete the action using arrow keys or other keyboard shortcuts.",
+                "Offer a toggle option to switch between drag-and-drop functionality and more accessible alternatives like click-to-select and click-to-place methods.",
+                "Use accessible JavaScript libraries that include built-in support for non-dragging interactions.",
+                "Ensure touch targets are large and have enough spacing to facilitate easier interaction without requiring precise dragging movements."
+            ],
+            "failures": [
+                "Relying solely on drag-and-drop interactions without providing an alternative method for users who cannot perform dragging movements.",
+                "Implementing custom drag-and-drop solutions without ensuring compatibility with assistive technologies that might not support dragging.",
+                "Failing to provide clear instructions or visual cues for alternative methods when dragging is not the only way to interact with the content."
+            ]
+        },
+        {
+            "name": "2.5.8 Target Size (Minimum)",
+            "level": "AA",
+            "description": "The size of the target for pointer inputs is at least 24 by 24 CSS pixels, except where:",
+            "url": "https://www.w3.org/TR/WCAG22/#target-size-minimum",
+            "techniques": [
+                "Design clickable elements, such as buttons and links, with a minimum size of 24 by 24 CSS pixels to ensure they are easily tappable.",
+                "Use CSS to add padding around small icons or text links to increase their interactive area to meet the minimum target size without altering the visual design.",
+                "Ensure that touch targets are spaced adequately apart to prevent accidental activation, maintaining a minimum space of 8 CSS pixels between targets.",
+                "Implement media queries to adjust target sizes dynamically for different screen sizes and resolutions, ensuring compliance across devices.",
+                "Use larger touch targets for mobile and touch interfaces, exceeding the minimum size where possible, to enhance usability and accessibility."
+            ],
+            "failures": [
+                "Creating small clickable areas that are difficult to interact with, such as tiny buttons or links that do not meet the minimum size requirement.",
+                "Overlapping interactive elements or placing them too close together, leading to accidental activation and poor user experience.",
+                "Relying on hover effects to expand interactive areas, which do not benefit touch screen users."
+            ]
+        },
+        {
+            "name": "3.1.1 Language of Page",
+            "level": "A",
+            "description": "The default human language of each Web page can be programmatically determined.",
+            "url": "https://www.w3.org/TR/WCAG22/#language-of-page",
+            "techniques": [
+                "Use the `lang` attribute on the `<html>` element to specify the default language of the page (e.g., `<html lang=\"en\">` for English).",
+                "Ensure server-side frameworks or content management systems (CMS) set the `lang` attribute dynamically based on user preferences or content language.",
+                "Validate the `lang` attribute using automated tools or validators to ensure it accurately reflects the language of the page content.",
+                "Use appropriate language codes in the `lang` attribute as per the IETF BCP 47 standard."
+            ],
+            "failures": [
+                "Omitting the `lang` attribute on the `<html>` element, leaving the language of the page undefined.",
+                "Setting the `lang` attribute to an incorrect or non-existent language code, leading to misidentification of the page language."
+            ]
+        },
+        {
+            "name": "3.1.2 Language of Parts",
+            "level": "AA",
+            "description": "The human language of each passage or phrase in the content can be programmatically determined except for proper names, technical terms, words of indeterminate language, and words or phrases that have become part of the vernacular of the immediately surrounding text.",
+            "url": "https://www.w3.org/TR/WCAG22/#language-of-parts",
+            "techniques": [
+                "Use the `lang` attribute on HTML elements to specify the language of different passages or phrases when they differ from the primary language of the page.",
+                "Implement server-side logic to dynamically set the `lang` attribute for content generated in different languages, ensuring it matches the content language.",
+                "Use language-specific metadata in content management systems to automatically apply the correct `lang` attributes on multilingual content sections.",
+                "Validate the presence and accuracy of `lang` attributes using accessibility testing tools and browser extensions.",
+                "Educate content authors on the importance of specifying language changes and provide guidance on how to correctly apply language attributes in the content they create."
+            ],
+            "failures": [
+                "Failing to specify a `lang` attribute for content in a different language, leaving users without assistive technologies unable to determine the language change.",
+                "Incorrectly using the `lang` attribute, such as setting it to the wrong language code or applying it to entire sections when only a passage or phrase differs in language."
+            ]
+        },
+        {
+            "name": "3.1.3 Unusual Words",
+            "level": "AAA",
+            "description": "A mechanism is available for identifying specific definitions of words or phrases used in an unusual or restricted way, including idioms and jargon.",
+            "url": "https://www.w3.org/TR/WCAG22/#unusual-words",
+            "techniques": [
+                "Provide a glossary or tooltip feature that defines unusual words or jargon when hovered over or clicked.",
+                "Use the `<abbr>` element with a `title` attribute to define acronyms or initialisms on first use.",
+                "Include a definitions section or link to an external resource where users can find explanations for complex or domain-specific language.",
+                "Implement context-sensitive help that users can access for definitions or explanations of uncommon terms.",
+                "Use an in-page expandable element (like an accordion) to offer definitions for words or phrases without leaving the current page content."
+            ],
+            "failures": [
+                "Using jargon or idiomatic expressions without any explanation or definition provided.",
+                "Assuming all users will understand specialized terms without additional context or definition options."
+            ]
+        },
+        {
+            "name": "3.1.4 Abbreviations",
+            "level": "AAA",
+            "description": "A mechanism for identifying the expanded form or meaning of abbreviations is available.",
+            "url": "https://www.w3.org/TR/WCAG22/#abbreviations",
+            "techniques": [
+                "Use the `<abbr>` HTML element with a `title` attribute to provide the expanded form of abbreviations.",
+                "Provide a glossary or list of abbreviations and their meanings on a separate page, linking to it from the main content.",
+                "Use tooltips or popovers that reveal the expanded form when the user hovers over or focuses on the abbreviation.",
+                "Implement a context-sensitive help feature that allows users to look up the meanings of abbreviations directly from the content.",
+                "Include the expanded form of the abbreviation in parentheses the first time it appears in the text."
+            ],
+            "failures": [
+                "Using abbreviations without any mechanism to inform users of their expanded forms or meanings.",
+                "Relying solely on context or prior knowledge of users to understand abbreviations without providing any explanatory aid."
+            ]
+        },
+        {
+            "name": "3.1.5 Reading Level",
+            "level": "AAA",
+            "description": "When text requires reading ability more advanced than the lower secondary education level after removal of proper names and titles, supplemental content, or a version that does not require reading ability more advanced than the lower secondary education level, is available.",
+            "url": "https://www.w3.org/TR/WCAG22/#reading-level",
+            "techniques": [
+                "Provide a simplified version of complex text that is written at a lower secondary education reading level.",
+                "Use plain language principles to rewrite content, minimizing the use of jargon and complex vocabulary.",
+                "Offer summaries or bullet points for lengthy or complex information to make it more digestible.",
+                "Include glossaries or definitions for specialized terms to aid in comprehension.",
+                "Utilize visual aids such as diagrams or infographics to support text and enhance understanding."
+            ],
+            "failures": [
+                "Using complex language without providing a simpler alternative or supplemental content.",
+                "Failing to offer any form of summary or simplified explanation for intricate text blocks."
+            ]
+        },
+        {
+            "name": "3.1.6 Pronunciation",
+            "level": "AAA",
+            "description": "A mechanism is available for identifying specific pronunciation of words where meaning of the words, in context, is ambiguous without knowing the pronunciation.",
+            "url": "https://www.w3.org/TR/WCAG22/#pronunciation",
+            "techniques": [
+                "Provide a pronunciation guide using a tooltip or popover that appears when users hover over or focus on the ambiguous word.",
+                "Use the `<ruby>` HTML element to provide pronunciation information alongside the text, particularly useful for languages like Japanese.",
+                "Offer an audio pronunciation option via a clickable icon or link next to the word to allow users to hear the correct pronunciation.",
+                "Implement an expandable section or a glossary where users can find pronunciations for specific words used throughout the content.",
+                "Use phonetic spelling or International Phonetic Alphabet (IPA) notation in parentheses next to the word to clarify pronunciation."
+            ],
+            "failures": [
+                "Not providing any pronunciation guidance for words that have multiple meanings depending on pronunciation, leading to potential misunderstanding.",
+                "Relying solely on context to convey pronunciation without any additional aids, assuming users will infer the correct pronunciation."
+            ]
+        },
+        {
+            "name": "3.2.1 On Focus",
+            "level": "A",
+            "description": "When any component receives focus, it does not initiate a change of context.",
+            "url": "https://www.w3.org/TR/WCAG22/#on-focus",
+            "techniques": [
+                "Ensure that focusable elements such as links and buttons do not automatically redirect to a new page or open a new window upon receiving focus.",
+                "Use event listeners to handle focus changes without triggering context changes, such as suppressing `onfocus` events that perform navigation or other context-altering actions.",
+                "Implement a separate mechanism, such as a button or link, to initiate any context changes, ensuring that these actions are user-initiated rather than focus-initiated.",
+                "Use CSS to style focus indicators without altering context, ensuring users can visually identify focused elements without automatic context changes.",
+                "Provide users with clear instructions on how to manually complete actions that could change context, such as submitting a form or selecting an option, to ensure they understand that focus alone will not cause a change."
+            ],
+            "failures": [
+                "Automatically redirecting users to a different page or section of a page when a form field receives focus.",
+                "Triggering a modal or pop-up window when an input field or link gains focus without the user's explicit interaction, such as clicking or pressing a key.",
+                "Changing the language or layout of the page when a user tabs into a particular section without their explicit action."
+            ]
+        },
+        {
+            "name": "3.2.2 On Input",
+            "level": "A",
+            "description": "Changing the setting of any user interface component does not automatically cause a change of context unless the user has been advised of the behavior before using the component.",
+            "url": "https://www.w3.org/TR/WCAG22/#on-input",
+            "techniques": [
+                "Provide clear instructions or notifications before an input action that will change the context, such as using a tooltip or visible text to inform users.",
+                "Use a confirmation dialog or an additional step (e.g., a \"Submit\" button) to allow users to confirm their action before a change in context occurs.",
+                "Implement focus management to ensure that when a context change is necessary, the user's focus is directed to the new context in a meaningful way.",
+                "Allow users to undo or reverse actions that lead to a context change, providing them with control over the interaction.",
+                "Use ARIA live regions to announce context changes to screen reader users when such changes are necessary and unavoidable."
+            ],
+            "failures": [
+                "Automatically navigating users to a new page or section without warning when they select an option from a dropdown menu.",
+                "Submitting a form and redirecting to a different page immediately upon selecting a checkbox or radio button without user confirmation.",
+                "Changing the entire layout or appearance of a page when a user interacts with a single form field, without prior notice or confirmation."
+            ]
+        },
+        {
+            "name": "3.2.3 Consistent Navigation",
+            "level": "AA",
+            "description": "Navigational mechanisms that are repeated on multiple Web pages within a set of Web pages occur in the same relative order each time they are repeated, unless a change is initiated by the user.",
+            "url": "https://www.w3.org/TR/WCAG22/#consistent-navigation",
+            "techniques": [
+                "Maintain a consistent order of navigation links across all pages by using a common template or shared component for navigation.",
+                "Use CSS to ensure that the visual styling and position of navigation elements remain consistent across pages.",
+                "Implement server-side includes or client-side frameworks to manage and replicate navigation menus consistently across multiple pages.",
+                "Regularly test navigation flow with assistive technologies to ensure the reading order is consistent with the visual order.",
+                "Provide users with the ability to customize their navigation experience, but ensure defaults are consistent across pages."
+            ],
+            "failures": [
+                "Changing the order of navigation links on different pages without user initiation.",
+                "Omitting certain navigation links on some pages without notifying the user, leading to an inconsistent navigation experience."
+            ]
+        },
+        {
+            "name": "3.2.4 Consistent Identification",
+            "level": "AA",
+            "description": "Components that have the same functionality within a set of Web pages are identified consistently.",
+            "url": "https://www.w3.org/TR/WCAG22/#consistent-identification",
+            "techniques": [
+                "Use consistent labeling for interactive elements, such as buttons and links, that perform the same action across different pages.",
+                "Implement a standardized design pattern or style guide for components that have the same functionality, ensuring uniformity in appearance and functionality.",
+                "Employ consistent ARIA roles and properties for components with the same purpose to aid assistive technologies in recognizing them.",
+                "Use the same iconography for similar actions, ensuring that icons are universally understood across the web application.",
+                "Maintain uniformity in the placement of repeated elements, such as navigation menus or search bars, to support user expectations and ease of use."
+            ],
+            "failures": [
+                "Using different labels or icons for the same action on different pages, leading to user confusion.",
+                "Inconsistently applying styles or interaction patterns for similar components, causing uncertainty and inconsistency in user experience.",
+                "Changing the function of a component without updating its identification, such as modifying a button\u2019s action but keeping the original label or icon."
+            ]
+        },
+        {
+            "name": "3.2.5 Change on Request",
+            "level": "AAA",
+            "description": "Changes of context are initiated only by user request or a mechanism is available to turn off such changes.",
+            "url": "https://www.w3.org/TR/WCAG22/#change-on-request",
+            "techniques": [
+                "Implement explicit confirmation dialogs for actions that will cause a change of context, such as navigation to a new page or opening a new window.",
+                "Use clear and descriptive labels for buttons or links that initiate a change of context, such as \"Open in new tab\" or \"Navigate to checkout page.\"",
+                "Provide user settings or preferences that allow users to enable or disable automatic changes of context, such as turning off auto-navigation after form submission.",
+                "Ensure that scripts or automated processes do not change the context without user interaction or provide an option to revert to the previous state if such changes occur.",
+                "Implement status messages or notifications to inform users of context changes and provide an option to undo or proceed with the change."
+            ],
+            "failures": [
+                "Automatically redirecting users to a different page without user interaction or notification.",
+                "Opening new windows or tabs without any prior warning or indication to the user.",
+                "Submitting forms automatically upon completing the last field without requiring an explicit submission action from the user."
+            ]
+        },
+        {
+            "name": "3.2.6 Consistent Help",
+            "level": "A",
+            "description": "If a Web page contains any of the following help mechanisms, and those mechanisms are repeated on multiple Web pages within a set of Web pages, they occur in the same order relative to other page content, unless a change is initiated by the user:",
+            "url": "https://www.w3.org/TR/WCAG22/#consistent-help",
+            "techniques": [
+                "Ensure that navigation menus containing help links are structured the same way on each page.",
+                "Use consistent labeling and positioning for help buttons or links across all pages in a website.",
+                "Implement a template system that maintains a uniform pattern for help sections across multiple pages.",
+                "Use CSS to define a consistent style and order for help elements, ensuring they are visually consistent.",
+                "Provide users with the option to customize the order of help mechanisms if needed, but ensure the default order remains consistent."
+            ],
+            "failures": [
+                "Changing the position of help links or buttons from one page to another without user initiation.",
+                "Using different labels or icons for help features on different pages, causing inconsistency.",
+                "Altering the sequence of help elements dynamically without user consent or interaction."
+            ]
+        },
+        {
+            "name": "3.3.1 Error Identification",
+            "level": "A",
+            "description": "If an input error is automatically detected, the item that is in error is identified and the error is described to the user in text.",
+            "url": "https://www.w3.org/TR/WCAG22/#error-identification",
+            "techniques": [
+                "Display error messages next to the corresponding input field in text form, ensuring the error is clearly described.",
+                "Use ARIA attributes such as `aria-invalid` and `aria-describedby` to associate error messages with their respective form fields for screen reader users.",
+                "Implement client-side validation that provides immediate feedback on input errors, with clear text instructions on how to correct them.",
+                "Provide a summary of all input errors at the top of the form in addition to inline error messages for quick reference.",
+                "Use visual indicators like icons or borders in combination with text to highlight the error fields, ensuring the information is accessible to users with visual impairments."
+            ],
+            "failures": [
+                "Relying solely on color (e.g., red borders) to indicate an error without accompanying descriptive text.",
+                "Failing to provide specific information about what the input error is and how to correct it, leaving users confused about the nature of the error."
+            ]
+        },
+        {
+            "name": "3.3.2 Labels or Instructions",
+            "level": "A",
+            "description": "Labels or instructions are provided when content requires user input.",
+            "url": "https://www.w3.org/TR/WCAG22/#labels-or-instructions",
+            "techniques": [
+                "Use `<label>` elements to associate text labels with form controls, ensuring that each input has a corresponding label.",
+                "Implement placeholder text within input fields to give users hints about the expected format or type of data, while ensuring it does not replace the label.",
+                "Use ARIA attributes like `aria-labelledby` or `aria-describedby` to provide additional context or instructions for complex form inputs when standard labeling techniques are insufficient.",
+                "Provide clear and concise instructional text before or immediately adjacent to input fields to guide users on how to correctly fill out the form.",
+                "Design form fields with error messages that are specific and informative, helping users understand what corrections are needed."
+            ],
+            "failures": [
+                "Omitting labels for form fields, making it difficult for users to understand what information is required.",
+                "Using placeholder text as the sole method of labeling input fields, as it disappears when users start typing and may not be accessible to screen readers."
+            ]
+        },
+        {
+            "name": "3.3.3 Error Suggestion",
+            "level": "AA",
+            "description": "If an input error is automatically detected and suggestions for correction are known, then the suggestions are provided to the user, unless it would jeopardize the security or purpose of the content.",
+            "url": "https://www.w3.org/TR/WCAG22/#error-suggestion",
+            "techniques": [
+                "Display inline error messages next to the input fields with suggested corrections, ensuring they are clear and easy to understand.",
+                "Use ARIA `aria-describedby` to associate error messages with input fields, allowing screen readers to announce suggestions when errors occur.",
+                "Implement server-side validation that returns detailed error messages and possible corrections when an error is detected in form submissions.",
+                "Provide a summary of form errors and suggestions at the top of the form after submission, with anchor links to each specific input field error for easy navigation.",
+                "Offer real-time validation with immediate error suggestions as users fill out form fields, ensuring the suggestions are accessible via screen readers."
+            ],
+            "failures": [
+                "Providing error messages without any corrective suggestions when the error type and correction are known.",
+                "Using ambiguous or technical language in error messages that do not aid the user in correcting the error.",
+                "Overwriting or obscuring existing input values with error messages, preventing users from seeing their original input and understanding how to correct it."
+            ]
+        },
+        {
+            "name": "3.3.4 Error Prevention (Legal, Financial, Data)",
+            "level": "AA",
+            "description": " For Web pages that cause legal commitments or financial transactions for the user to occur, that modify or delete user-controllable data in data storage systems, or that submit user test responses, at least one of the following is true:",
+            "url": "https://www.w3.org/TR/WCAG22/#error-prevention-legal-financial-data",
+            "techniques": [
+                "Implement a confirmation step before finalizing transactions or data submissions, allowing users to review and confirm their actions.",
+                "Provide a mechanism for users to review, modify, or cancel transactions or data submissions before finalizing.",
+                "Offer a \"save draft\" functionality that allows users to save their work and return to it later, reducing the risk of accidental submission.",
+                "Present a summary of key details and terms before finalizing any legal or financial commitment to ensure users understand the implications.",
+                "Include clear and accessible instructions or warnings about the consequences of actions that modify or delete data."
+            ],
+            "failures": [
+                "Automatically submitting forms without user confirmation, leading to unintended transactions or data changes.",
+                "Not providing users with an opportunity to review their entries before finalizing a submission or transaction.",
+                "Failing to offer a way to undo or recover from unintended actions, such as accidental data deletions or modifications."
+            ]
+        },
+        {
+            "name": "3.3.5 Help",
+            "level": "AAA",
+            "description": "Context-sensitive help is available.",
+            "url": "https://www.w3.org/TR/WCAG22/#help",
+            "techniques": [
+                "Provide tooltips or help icons next to form fields that offer explanations or examples when hovered over or focused.",
+                "Implement a dedicated help section or FAQ page that users can easily access from any part of the application.",
+                "Offer inline help text that appears dynamically when the user focuses on a form field or section, providing context-specific guidance.",
+                "Use modal dialogs or pop-ups to deliver detailed help information without navigating away from the current page, ensuring they are accessible by screen readers and keyboard navigation.",
+                "Include a live chat or support feature where users can ask questions and receive real-time assistance."
+            ],
+            "failures": [
+                "Failing to provide any form of help or guidance for complex processes or forms.",
+                "Relying solely on downloadable documents (e.g., PDFs) for help content without offering accessible, web-based alternatives.",
+                "Providing help content that is not easily discoverable or accessible from the current context, requiring users to search or navigate away from their task."
+            ]
+        },
+        {
+            "name": "3.3.6 Error Prevention (All)",
+            "level": "AAA",
+            "description": "For Web pages that require the user to submit information, at least one of the following is true:",
+            "url": "https://www.w3.org/TR/WCAG22/#error-prevention-all",
+            "techniques": [
+                "Provide a confirmation page or summary that allows users to review, correct, and confirm their information before final submission.",
+                "Implement a \"save and review\" feature that allows users to save a draft of their input and review it later before final submission.",
+                "Use clearly labeled undo and redo options to allow users to easily correct mistakes.",
+                "Implement input validation to check for errors and alert users before submission.",
+                "Provide user-friendly error messages that guide users in correcting any mistakes."
+            ],
+            "failures": [
+                "Automatically submitting forms without user confirmation.",
+                "Not allowing users to review their input before submission.",
+                "Failing to provide a mechanism for users to correct input errors after submission."
+            ]
+        },
+        {
+            "name": "3.3.7 Redundant Entry",
+            "level": "A",
+            "description": "Information previously entered by or provided to the user that is required to be entered again in the same process is either:",
+            "url": "https://www.w3.org/TR/WCAG22/#redundant-entry",
+            "techniques": [
+                "Implement auto-fill and auto-complete features for form fields to allow users to reuse previously entered information.",
+                "Use session storage or cookies to temporarily save user input during the process, enabling automatic retrieval of previously entered data.",
+                "Design forms to dynamically pre-populate fields with previously entered information when applicable.",
+                "Provide an option for users to review and edit previously submitted information instead of requiring re-entry in multi-step processes.",
+                "Utilize user accounts or profiles to store frequently used information, allowing users to reuse this data in future interactions."
+            ],
+            "failures": [
+                "Forcing users to re-enter personal information, such as name and address, in consecutive form steps without offering an auto-fill option.",
+                "Designing forms that do not retain user input after a page reload or navigation, leading to lost information and requiring re-entry.",
+                "Requiring users to manually re-enter data that they have already provided in previous interactions within the same session."
+            ]
+        },
+        {
+            "name": "3.3.8 Accessible Authentication (Minimum)",
+            "level": "AA",
+            "description": "A cognitive function test (such as remembering a password or solving a puzzle) is not required for any step in an authentication process unless that step provides at least one of the following:",
+            "url": "https://www.w3.org/TR/WCAG22/#accessible-authentication-minimum",
+            "techniques": [
+                "Implement password-less authentication methods such as email-based Magic Links or SMS-based one-time passcodes.",
+                "Use biometric authentication options like fingerprint or facial recognition when devices support them.",
+                "Allow users to authenticate through federated identity providers (e.g., Google, Facebook, Apple) that do not require complex cognitive tasks.",
+                "Provide an option for users to save their login credentials in a secure password manager integrated with the application.",
+                "Offer a single sign-on (SSO) feature that eliminates the need for frequent password entry across multiple applications."
+            ],
+            "failures": [
+                "Requiring users to solve CAPTCHAs or puzzles without providing an accessible alternative.",
+                "Mandating the use of complex passwords without offering a password manager or alternative authentication method."
+            ]
+        },
+        {
+            "name": "3.3.9 Accessible Authentication (Enhanced)",
+            "level": "AAA",
+            "description": "A cognitive function test (such as remembering a password or solving a puzzle) is not required for any step in an authentication process unless that step provides at least one of the following:",
+            "url": "https://www.w3.org/TR/WCAG22/#accessible-authentication-enhanced",
+            "techniques": [
+                "Implement biometric authentication options, such as fingerprint or facial recognition, to avoid reliance on cognitive function tests.",
+                "Use passwordless authentication methods, like email or SMS-based one-time passwords (OTPs), to eliminate the need to remember passwords.",
+                "Provide a password manager integration option to help users automatically fill in their credentials without recalling them.",
+                "Offer a second factor that does not require cognitive effort, such as a security key or mobile app notification, for multi-factor authentication processes.",
+                "Allow users to authenticate using social media accounts or other third-party services that they already use and are familiar with."
+            ],
+            "failures": [
+                "Requiring users to remember complex passwords or answers to security questions during the authentication process.",
+                "Implementing CAPTCHA tests that require solving puzzles or identifying objects in images without offering an accessible alternative.",
+                "Using time-limited password reset links or OTPs that require users to recall information quickly without providing sufficient time or alternative methods."
+            ]
+        },
+        {
+            "name": "4.1.1 Parsing",
+            "level": "A",
+            "description": "In content implemented using markup languages, elements have complete start and end tags, elements are nested according to their specifications, elements do not contain duplicate attributes, and any IDs are unique, except where the specifications allow these features.",
+            "url": "https://www.w3.org/TR/WCAG22/#parsing",
+            "techniques": [
+                "Validate HTML and CSS using a validator tool to ensure that all elements have complete start and end tags.",
+                "Use a code editor with linting features to automatically detect and highlight syntax errors, such as duplicate attributes or incorrect nesting.",
+                "Assign unique IDs to elements programmatically or use a naming convention to prevent ID duplication.",
+                "Regularly review and test the website's codebase for compliance with the specifications of the markup language being used.",
+                "Implement automated testing scripts that check for parsing errors as part of the development workflow."
+            ],
+            "failures": [
+                "Missing or improperly nested start and end tags, leading to broken HTML structure.",
+                "Using the same ID attribute value for multiple elements on the same page, causing issues with element identification.",
+                "Including duplicate attributes for a single element, which may cause unpredictable behavior in browsers."
+            ]
+        },
+        {
+            "name": "4.1.2 Name, Role, Value",
+            "level": "A",
+            "description": "For all user interface components (including but not limited to: form elements, links and components generated by scripts), the name and role can be programmatically determined; states, properties, and values that can be set by the user can be programmatically set; and notification of changes to these items is available to user agents, including assistive technologies.",
+            "url": "https://www.w3.org/TR/WCAG22/#name-role-value",
+            "techniques": [
+                "Use appropriate ARIA roles, states, and properties to convey information about UI components to assistive technologies.",
+                "Ensure that all form elements have associated labels that can be programmatically determined, using the `<label>` element or `aria-labelledby`.",
+                "Implement dynamic content updates using ARIA live regions to notify assistive technologies of changes.",
+                "Utilize native HTML elements like `<button>`, `<input>`, and `<select>` where possible, as they have built-in accessibility features.",
+                "Use JavaScript to update ARIA states and properties dynamically to reflect changes in UI components, ensuring that these updates are communicated to assistive technologies."
+            ],
+            "failures": [
+                "Failing to provide an accessible name for interactive elements, such as buttons or links, which can cause assistive technologies to not announce them correctly.",
+                "Using non-standard HTML elements or custom widgets without appropriate ARIA roles and properties to define their behavior and purpose.",
+                "Not updating the ARIA state or property when a UI component changes, leading to outdated information being conveyed to assistive technologies."
+            ]
+        },
+        {
+            "name": "4.1.3 Status Messages",
+            "level": "AA",
+            "description": "In content implemented using markup languages, status messages can be programmatically determined through role or properties such that they can be presented to the user by assistive technologies without receiving focus.",
+            "url": "https://www.w3.org/TR/WCAG22/#status-messages",
+            "techniques": [
+                "Use ARIA roles like `role=\"status\"` or `role=\"alert\"` to ensure that status messages are announced by assistive technologies without disrupting focus.",
+                "Implement `aria-live` regions with appropriate values such as `aria-live=\"polite\"` or `aria-live=\"assertive\"` to allow screen readers to automatically announce status updates.",
+                "Ensure that status messages are programmatically associated with the element responsible for the status change by using appropriate ARIA roles and properties.",
+                "Update the content of status messages in a way that triggers screen readers to announce the changes, such as by modifying the text node or using JavaScript to update the DOM.",
+                "Use `aria-atomic=\"true\"` when updating the content of a live region to ensure that the entire region is announced rather than just the changed portion."
+            ],
+            "failures": [
+                "Failing to use ARIA roles or properties for status messages, resulting in assistive technologies not announcing the messages.",
+                "Overwriting or removing live regions before they have been announced by assistive technologies, causing users to miss important status updates.",
+                "Using focus to announce status messages, which can disrupt the user\u2019s navigation and focus context."
+            ]
+        }
+    ]
+}
